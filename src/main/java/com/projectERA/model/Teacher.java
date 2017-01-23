@@ -3,54 +3,61 @@
  */
 package com.projectERA.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * Teacher entity
- * 
- * @author aureliadelaune
- *
  */
 @Entity
 @Table(name = "teachers")
 public class Teacher extends User {
 
+	@Transient
+	private List<Subject> subjects;
+	
 	/**
-	 * constructor by default for the Teacher entity
+	 * public methods
 	 */
 	public Teacher() {
 	}
 
+	/**
+	 * @param id from EntityBase
+	 */
 	public Teacher(int id) {
 		super(id);
 	}
 
 	/**
+	 * @param id
 	 * @param email
 	 * @param userName
 	 * @param firstName
 	 * @param lastName
+	 * @param password
+	 * @param guid
 	 */
-	public Teacher(String email, String userName, String firstName, String lastName) {
-		super(email, userName, firstName, lastName);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "Teacher [" + super.toString() + "]";
+	public Teacher(int id, String email, String userName, String firstName, String lastName, String password,
+			byte[] guid) {
+		super(id, email, userName, firstName, lastName, password, guid);
 	}
 
 	/**
-	 * downloadHomework method
+	 * @return the subjects
 	 */
-	public void downloadHomework() {
+	public List<Subject> getSubjects() {
+		return subjects;
+	}
 
+	/**
+	 * @param subjects the subjects to set
+	 */
+	public void setSubjects(List<Subject> subjects) {
+		this.subjects = subjects;
 	}
 
 }

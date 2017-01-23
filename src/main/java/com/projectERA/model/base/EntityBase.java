@@ -9,7 +9,7 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 @Inheritance
 public abstract class EntityBase {
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;

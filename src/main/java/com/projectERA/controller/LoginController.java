@@ -7,16 +7,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.projectERA.dao.UserDao;
 import com.projectERA.model.User;
-import com.projectERA.repository.UserRepository;
 
 @Controller
 public class LoginController {
 
-	protected UserRepository userRepository;
+	protected UserDao userRepository;
 
 	@Autowired
-	public LoginController(UserRepository userRepo) {
+	public LoginController(UserDao userRepo) {
 		this.userRepository = userRepo;
 	}
 

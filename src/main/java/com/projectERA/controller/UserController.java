@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.projectERA.dao.UserDao;
 import com.projectERA.model.User;
-import com.projectERA.repository.UserRepository;
 
 @Controller
 public class UserController {
@@ -16,7 +16,7 @@ public class UserController {
 	  
 	  // Wire the UserDao used inside this controller.
 	  @Autowired
-	  private UserRepository userRepo;
+	  private UserDao userRepo;
 	  
 	  /**
 	   * Create a new user with an auto-generated id and email and name as passed 

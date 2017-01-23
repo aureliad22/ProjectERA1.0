@@ -1,36 +1,50 @@
 package com.projectERA.model;
 
+import java.util.ArrayList;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="students")
 public class Student extends User{
 
-	@Column
-	private int promoId;
+	@NotNull
+	private Grade grade;
 	
 	@Column
-	private int groupID;
+	private Group group;
 	
+	@Column
+	private ArrayList<Homework> homework;
+	
+	/**
+	 * public methods
+	 */
 	public Student(){ 
 	}
 
+	/**
+	 * @param id from EntityBase
+	 */
 	public Student(int id){
 		super(id);
 	}
 
-
 	/**
+	 * @param id
 	 * @param email
 	 * @param userName
 	 * @param firstName
 	 * @param lastName
+	 * @param password
+	 * @param guid
 	 */
-	public Student(String email, String userName, String firstName, String lastName) {
-		super(email, userName, firstName, lastName);
-		// TODO Auto-generated constructor stub
+	public Student(int id, String email, String userName, String firstName, String lastName, String password,
+			byte[] guid) {
+		super(id, email, userName, firstName, lastName, password, guid);
 	}
 
 	/* (non-Javadoc)
@@ -42,33 +56,46 @@ public class Student extends User{
 	}
 
 	/**
-	 * @return the promoId
+	 * @return the grade
 	 */
-	public int getPromoId() {
-		return promoId;
+	public Grade getGrade() {
+		return grade;
 	}
 
 	/**
-	 * @param promoId the promoId to set
+	 * @param grade the grade to set
 	 */
-	public void setPromoId(int promoId) {
-		this.promoId = promoId;
+	public void setGrade(Grade grade) {
+		this.grade = grade;
 	}
 
 	/**
-	 * @return the groupID
+	 * @return the group
 	 */
-	public int getGroupID() {
-		return groupID;
+	public Group getGroup() {
+		return group;
 	}
 
 	/**
-	 * @param groupID the groupID to set
+	 * @param group the group to set
 	 */
-	public void setGroupID(int groupID) {
-		this.groupID = groupID;
+	public void setGroup(Group group) {
+		this.group = group;
 	}
-	
-	
+
+	/**
+	 * @return the homeworkList
+	 */
+	public ArrayList<Homework> getHomework() {
+		return homework;
+	}
+
+	/**
+	 * @param homeworkList the homeworkList to set
+	 */
+	public void setHomework(ArrayList<Homework> homework) {
+		this.homework = homework;
+	}
+
 }
 	

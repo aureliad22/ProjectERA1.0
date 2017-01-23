@@ -15,35 +15,39 @@ import javax.persistence.Table;
 public class Administrator extends User {
 
 	/**
-	 * constructor by default for the Administrator entity
+	 * public methods
 	 */
 	public Administrator(){
 		
 	}
 	
+	/**
+	 * @param id from EntityBase
+	 */
 	public Administrator(int id) {
 		super(id);
 	}
 
 	/**
-	 * full constructor for the Administrator entity, calling the User constructor, with:
-	 * @param fname
-	 * @param lname
-	 * @param login
+	 * @param id
+	 * @param email
+	 * @param userName
+	 * @param firstName
+	 * @param lastName
 	 * @param password
-	 * @param idAdmin
+	 * @param guid
 	 */
-	public Administrator(String fname, String lname, String login, String password, int idAdmin) {
-		super(fname, lname, login, password);
+	public Administrator(int id, String email, String userName, String firstName, String lastName, String password,
+			byte[] guid) {
+		super(id, email, userName, firstName, lastName, password, guid);
 	}
+
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Administrator []";
+		return "Administrator [" + super.toString() + "]";
 	}
-	
-	
 }
