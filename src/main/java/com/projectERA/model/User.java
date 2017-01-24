@@ -1,77 +1,63 @@
 package com.projectERA.model;
 
-import java.util.Arrays;
-
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Transient;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Column;
+import javax.persistence.Inheritance;
+import javax.persistence.MappedSuperclass;
 
 import com.projectERA.model.base.EntityBase;
 
-@Entity
-@Table(name = "users")
-public class User extends EntityBase {
+@MappedSuperclass
+@Inheritance
+public abstract class User extends EntityBase {
 
 	// The entity fields (private)
 
-	@NotNull
+	@Column(name="email", nullable=false)
 	private String email;
 
-	@NotNull
-	private String userName;
+	@Column(name="login", nullable=false)
+	private String login;
 
-	@NotNull
+	@Column(name="firstname", nullable=false)
 	private String firstName;
-
-	@NotNull
+	
+	@Column(name="lastname", nullable=false)
 	private String lastName;
-
-	@Transient
+	
+	@Column(name="password", nullable=false)
 	private String password;
+	
+//	@Column(name="categoryId", nullable=false)
+//	private int categoryId;
 
-	@NotNull
-	private byte[] guid;
+	// Public methods
 
-	/**
-	 * Public methods
-	 */
 	public User() {
 	}
 
-	/**
-	 * @param id from EntityBase
-	 */
-	public User(int id) {
+	public User(Integer id) {
 		super(id);
 	}
+
+	public User(String email, String password){
+		this.email = email;
+		this.password = password;
+	}
+
 
 	/**
 	 * @param email
-	 * @param userName
+	 * @param login
 	 * @param firstName
 	 * @param lastName
 	 * @param password
-	 * @param guid
 	 */
-	public User(int id, String email, String userName, String firstName, String lastName, String password,
-			byte[] guid) {
-		super(id);
+	public User(String email, String login, String firstName, String lastName, String password) {
 		this.email = email;
-		this.userName = userName;
+		this.login = login;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
-		this.guid = guid;
-	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "User [id=" + super.toString() + "email=" + email + ", userName=" + userName + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", guid=" + Arrays.toString(guid) + "]";
 	}
 
 	/**
@@ -89,19 +75,20 @@ public class User extends EntityBase {
 		this.email = email;
 	}
 
+
+
 	/**
-	 * @return the userName
+	 * @return the login
 	 */
-	public String getUserName() {
-		return userName;
+	public String getLogin() {
+		return login;
 	}
 
 	/**
-	 * @param userName
-	 *            the userName to set
+	 * @param login the login to set
 	 */
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
 	/**
@@ -147,21 +134,6 @@ public class User extends EntityBase {
 	 */
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	/**
-	 * @return the guid
-	 */
-	public byte[] getGuid() {
-		return guid;
-	}
-
-	/**
-	 * @param guid
-	 *            the guid to set
-	 */
-	public void setGuid(byte[] guid) {
-		this.guid = guid;
 	}
 
 }

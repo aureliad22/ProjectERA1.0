@@ -1,4 +1,4 @@
-.gradle
+add --al.gradle
 /build/
 !gradle/wrapper/gradle-wrapper.jar
 

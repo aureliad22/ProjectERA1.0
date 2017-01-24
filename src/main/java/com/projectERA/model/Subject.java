@@ -9,23 +9,23 @@ import javax.validation.constraints.NotNull;
 
 import com.projectERA.model.base.EntityBase;
 
-@Entity
-@Table(name = "subjects")
+//@Entity
+//@Table(name = "subjects")
 public class Subject extends EntityBase{
 	
-	@NotNull
+//	@NotNull
 	private String title;
 	
-	@NotNull
+//	@NotNull
 	private Date deadline;
 	
-	@NotNull
+//	@NotNull
 	private int groupSize; 
 	
-	@NotNull
+//	@NotNull
 	private String description;
 	
-	@NotNull
+//	@NotNull
 	private String specialty;
 	
 	private Date createAt;

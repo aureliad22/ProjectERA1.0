@@ -3,13 +3,15 @@ package com.projectERA.model;
 import java.time.Year;
 
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import com.projectERA.model.base.EntityBase;
 
 @Entity
-@Table(name = "grade")
+@Table(name = "grades")
+@Inheritance
 public class Grade extends EntityBase {
 	
 	@NotNull
@@ -22,16 +24,20 @@ public class Grade extends EntityBase {
 	public Grade(){		
 	}
 
-	public Grade(int id){
+	public Grade(Integer id){
 		super(id);
 	}
 
+	public Grade(String name, Year year) {
+		this.name = name;
+		this.year = year;
+	}
 	/**
 	 * @param idPromo
 	 * @param name
 	 * @param year
 	 */
-	public Grade(int id, String name, Year year) {
+	public Grade(Integer id, String name, Year year) {
 		super(id);
 		this.name = name;
 		this.year = year;
@@ -67,8 +73,4 @@ public class Grade extends EntityBase {
 	public void setYear(Year year) {
 		this.year = year;
 	}
-	
-	
-	
-
 }

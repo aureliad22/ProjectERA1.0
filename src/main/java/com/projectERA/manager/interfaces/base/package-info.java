@@ -5,4 +5,4 @@
  * @author aureliadelaune
  *
  */
-package com.projectERA.controller;
+package com.projectERA.manager.interfaces.base;

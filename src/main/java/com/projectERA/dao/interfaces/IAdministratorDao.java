@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import com.projectERA.dao.interfaces.base.IBaseDao;
 import com.projectERA.model.Administrator;
 
-@Repository
+//@Repository
 public interface IAdministratorDao extends IBaseDao<Administrator>{
 
 }

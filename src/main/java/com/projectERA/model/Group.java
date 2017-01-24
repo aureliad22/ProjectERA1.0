@@ -5,8 +5,8 @@ import javax.persistence.Table;
 
 import com.projectERA.model.base.EntityBase;
 
-@Entity
-@Table(name = "group")
+//@Entity
+//@Table(name = "group")
 public class Group extends EntityBase{
 	
 	public Group(){		
