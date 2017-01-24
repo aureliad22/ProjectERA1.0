@@ -8,8 +8,8 @@ import javax.persistence.Table;
 import com.projectERA.model.base.EntityBase;
 
 //HomeWork
-@Entity
-@Table(name = "homework")
+//@Entity
+//@Table(name = "homework")
 public class Homework extends EntityBase{
 	
 	private String title;	

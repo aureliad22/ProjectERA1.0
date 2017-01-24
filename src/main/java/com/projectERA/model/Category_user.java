@@ -14,11 +14,11 @@ import com.projectERA.model.base.EntityBase;
  * @author aureliadelaune
  *
  */
-@Entity
-@Table(name = "category of users")
+//@Entity
+//@Table(name = "category of users")
 public class Category_user extends EntityBase{
 	
-	@NotNull
+//	@NotNull
 	private String categoryUser;
 	
 	/**

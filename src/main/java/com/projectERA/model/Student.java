@@ -1,26 +1,33 @@
 package com.projectERA.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="students")
+@Inheritance
 public class Student extends User{
 
-	@Column
-	private int promoId;
-	
-	@Column
-	private int groupID;
+//	@ManyToOne
+//	private Grade grade;
+//	
+//	@ManyToOne
+//	private Group group;
+//	
+//	@OneToMany
+//	ArrayList<Homework>homework;
 	
 	public Student(){ 
 	}
 
-	public Student(int id){
+	public Student(Integer id){
 		super(id);
 	}
 
+	public Student(String email, String password){
+		super(email, password);
+	}
 
 	/**
 	 * @param email
@@ -28,47 +35,11 @@ public class Student extends User{
 	 * @param firstName
 	 * @param lastName
 	 */
-	public Student(String email, String userName, String firstName, String lastName) {
-		super(email, userName, firstName, lastName);
-		// TODO Auto-generated constructor stub
+	public Student(String email, String userName, String firstName, String lastName, String password) {
+		super(email, userName, firstName, lastName, password);
+//		this.grade = grade;
+//		this.homework = homework;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "Student [" + super.toString() + "]";
-	}
-
-	/**
-	 * @return the promoId
-	 */
-	public int getPromoId() {
-		return promoId;
-	}
-
-	/**
-	 * @param promoId the promoId to set
-	 */
-	public void setPromoId(int promoId) {
-		this.promoId = promoId;
-	}
-
-	/**
-	 * @return the groupID
-	 */
-	public int getGroupID() {
-		return groupID;
-	}
-
-	/**
-	 * @param groupID the groupID to set
-	 */
-	public void setGroupID(int groupID) {
-		this.groupID = groupID;
-	}
-	
 	
 }
-	

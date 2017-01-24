@@ -4,6 +4,7 @@
 package com.projectERA.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
 import javax.persistence.Table;
 
 /**
@@ -14,15 +15,17 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "teachers")
+@Inheritance
 public class Teacher extends User {
 
 	/**
 	 * constructor by default for the Teacher entity
 	 */
 	public Teacher() {
+		super();
 	}
 
-	public Teacher(int id) {
+	public Teacher(Integer id) {
 		super(id);
 	}
 
@@ -32,25 +35,8 @@ public class Teacher extends User {
 	 * @param firstName
 	 * @param lastName
 	 */
-	public Teacher(String email, String userName, String firstName, String lastName) {
-		super(email, userName, firstName, lastName);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "Teacher [" + super.toString() + "]";
-	}
-
-	/**
-	 * downloadHomework method
-	 */
-	public void downloadHomework() {
-
+	public Teacher(String email, String login, String firstName, String lastName, String password) {
+		super(email, login, firstName, lastName, password);
 	}
 
 }

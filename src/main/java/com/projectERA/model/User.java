@@ -1,50 +1,63 @@
 package com.projectERA.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Column;
+import javax.persistence.Inheritance;
+import javax.persistence.MappedSuperclass;
 
 import com.projectERA.model.base.EntityBase;
 
-@Entity
-@Table(name = "users")
-public class User extends EntityBase {
+@MappedSuperclass
+@Inheritance
+public abstract class User extends EntityBase {
 
 	// The entity fields (private)
 
-	@NotNull
+	@Column(name="email", nullable=false)
 	private String email;
 
-	@NotNull
-	private String userName;
+	@Column(name="login", nullable=false)
+	private String login;
 
-	@NotNull
+	@Column(name="firstname", nullable=false)
 	private String firstName;
 	
-	@NotNull
+	@Column(name="lastname", nullable=false)
 	private String lastName;
 	
+	@Column(name="password", nullable=false)
 	private String password;
+	
+//	@Column(name="categoryId", nullable=false)
+//	private int categoryId;
 
 	// Public methods
 
 	public User() {
 	}
 
-	public User(int id) {
+	public User(Integer id) {
 		super(id);
 	}
 
-	public User(String email, String userName) {
+	public User(String email, String password){
 		this.email = email;
-		this.userName = userName;
+		this.password = password;
 	}
 
-	public User(String email, String userName, String firstName, String lastName) {
+
+	/**
+	 * @param email
+	 * @param login
+	 * @param firstName
+	 * @param lastName
+	 * @param password
+	 */
+	public User(String email, String login, String firstName, String lastName, String password) {
 		this.email = email;
-		this.userName = userName;
+		this.login = login;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.password = password;
 	}
 
 	/**
@@ -62,19 +75,20 @@ public class User extends EntityBase {
 		this.email = email;
 	}
 
+
+
 	/**
-	 * @return the name
+	 * @return the login
 	 */
-	public String getUserName() {
-		return userName;
+	public String getLogin() {
+		return login;
 	}
 
 	/**
-	 * @param name
-	 *            the name to set
+	 * @param login the login to set
 	 */
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
 	/**

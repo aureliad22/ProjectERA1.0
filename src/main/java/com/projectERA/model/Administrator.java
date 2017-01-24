@@ -4,46 +4,40 @@
 package com.projectERA.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
 import javax.persistence.Table;
 
 /**
  * Administrator entity
  * @author aureliadelaune
  */
-@Entity
-@Table(name = "administrator")
+//@Entity
+//@Table(name = "administrator")
+//@Inheritance
 public class Administrator extends User {
 
 	/**
-	 * constructor by default for the Administrator entity
+	 * public methods
 	 */
 	public Administrator(){
 		
 	}
 	
-	public Administrator(int id) {
+	/**
+	 * @param id from EntityBase
+	 */
+	public Administrator(Integer id) {
 		super(id);
 	}
 
-	/**
-	 * full constructor for the Administrator entity, calling the User constructor, with:
-	 * @param fname
-	 * @param lname
-	 * @param login
-	 * @param password
-	 * @param idAdmin
-	 */
-	public Administrator(String fname, String lname, String login, String password, int idAdmin) {
-		super(fname, lname, login, password);
-	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
+	/**
+	 * @param email
+	 * @param userName
+	 * @param firstName
+	 * @param lastName
 	 */
-	@Override
-	public String toString() {
-		return "Administrator []";
+	public Administrator(String email, String login, String firstName, String lastName, String password) {
+		super(email, login, firstName, lastName, password);
 	}
-	
-	
 }
