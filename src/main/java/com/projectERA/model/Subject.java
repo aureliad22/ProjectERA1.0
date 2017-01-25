@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -11,6 +12,7 @@ import com.projectERA.model.base.EntityBase;
 
 @Entity
 @Table(name = "subjects")
+@Inheritance
 public class Subject extends EntityBase{
 	
 	@NotNull

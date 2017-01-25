@@ -1,6 +1,5 @@
 package com.projectERA.controller.api;
 
-import java.util.Date;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,9 +19,9 @@ private IHomeworkManager homeworkManager;
 
 @RequestMapping(value = "/homeworks/create")
 @ResponseBody
-public String create( int id, String title, String document) {
+public String create( Integer id, String title, String document) {
 	try {
-		Homework homework = new Homework(id ,title, document);
+		Homework homework = new Homework(id ,title,document);
 		homeworkManager.create(homework);
 	} catch (Exception ex) {
 		return "Error creating the Homework: " + ex.toString();
@@ -32,7 +31,7 @@ public String create( int id, String title, String document) {
 
 @RequestMapping(value = "/homeworks/delete")
 @ResponseBody
-public String delete(int id) {
+public String delete(Integer id) {
 	try {
 		Homework homework = new Homework(id);
 		homeworkManager.delete(homework);
@@ -44,7 +43,7 @@ public String delete(int id) {
 
 @RequestMapping(value = "/homeworks/update")
 @ResponseBody
-public String updateName( int id, String title, String document) {
+public String updateName( Integer id, String title, String document) {
 	try {
 		Homework homework = homeworkManager.getById(id);
 		homework.setTitle(title);
