@@ -10,24 +10,28 @@ import com.projectERA.dao.GradeDao;
 import com.projectERA.dao.GroupDao;
 import com.projectERA.dao.HomeworkDao;
 import com.projectERA.dao.StudentDao;
+import com.projectERA.dao.SubjectDao;
 import com.projectERA.dao.TeacherDao;
 import com.projectERA.dao.interfaces.IAdministratorDao;
 import com.projectERA.dao.interfaces.IGradeDao;
 import com.projectERA.dao.interfaces.IGroupDao;
 import com.projectERA.dao.interfaces.IHomeworkDao;
 import com.projectERA.dao.interfaces.IStudentDao;
+import com.projectERA.dao.interfaces.ISubjectDao;
 import com.projectERA.dao.interfaces.ITeacherDao;
 import com.projectERA.manager.AdministratorManager;
 import com.projectERA.manager.GradeManager;
 import com.projectERA.manager.GroupManager;
 import com.projectERA.manager.HomeworkManager;
 import com.projectERA.manager.StudentManager;
+import com.projectERA.manager.SubjectManager;
 import com.projectERA.manager.TeacherManager;
 import com.projectERA.manager.interfaces.IAdministratorManager;
 import com.projectERA.manager.interfaces.IGradeManager;
 import com.projectERA.manager.interfaces.IGroupManager;
 import com.projectERA.manager.interfaces.IHomeworkManager;
 import com.projectERA.manager.interfaces.IStudentManager;
+import com.projectERA.manager.interfaces.ISubjectManager;
 import com.projectERA.manager.interfaces.ITeacherManager;
 
 
@@ -105,6 +109,16 @@ public class Application implements CommandLineRunner {
 	@Bean
 	public IGroupDao getGroupDao(){
 		return new GroupDao();
+	}
+	
+	@Bean
+	public ISubjectManager getSubjectManager(){
+		return new SubjectManager();
+	}
+	
+	@Bean
+	public ISubjectDao getSubjectDao(){
+		return new SubjectDao();
 	}
 	
 	

@@ -1,5 +1,8 @@
 package com.projectERA.controller.api;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,22 +11,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.projectERA.manager.interfaces.ISubjectManager;
 import com.projectERA.model.Student;
 import com.projectERA.model.Subject;
+import com.projectERA.model.Teacher;
 
 @Controller
 public class SubjectAPIController {
 	@Autowired
 	private ISubjectManager subjectManager;
 	
-	@RequestMapping(value = "/students/create")
+	@RequestMapping(value = "/subjects/create")
 	@ResponseBody
-	public String create(String firstname, String lastname, String login, String password, String email) {
+	public String create(Integer id, String title, Date deadline, Integer groupSize, String description,
+			Integer idPromo, String specialty, ArrayList<Teacher> Authors) {
 		try {
-			Student student = new Student(firstname, lastname, login, password, email);
-			studentManager.create(student);
+			Subject subject = new Subject(id, title, deadline, groupSize, description, idPromo, specialty, Authors);
+			subjectManager.create(subject);
 		} catch (Exception ex) {
-			return "Error creating the student: " + ex.toString();
+			return "Error creating the subject: " + ex.toString();
 		}
-		return "Student succesfully created!";
+		return "Subject succesfully created!";
 	}
 
 	/**
@@ -36,7 +41,7 @@ public class SubjectAPIController {
 			Subject subject = new Subject(id);
 			subjectManager.delete(subject );
 		} catch (Exception ex) {
-			return "Error deleting thesubject : " + ex.toString();
+			return "Error deleting the subject : " + ex.toString();
 		}
 		return "subject succesfully deleted!";
 	}
