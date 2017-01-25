@@ -32,8 +32,5 @@ public class TeacherViewController {
 		String redirectUrl = "/";
 	    return "redirect:" + redirectUrl;
 	}
-
-
-
 }
 

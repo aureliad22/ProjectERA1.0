@@ -1,7 +1,12 @@
 package com.projectERA.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -9,14 +14,14 @@ import javax.persistence.Table;
 @Inheritance
 public class Student extends User{
 
-//	@ManyToOne
-//	private Grade grade;
-//	
-//	@ManyToOne
-//	private Group group;
-//	
-//	@OneToMany
-//	List<Homework>homework;
+	@ManyToOne
+	private Grade grade;
+	
+	@ManyToOne
+	private Group group;
+	
+	@OneToMany
+	private List<Homework>homework;
 	
 	public Student(){ 
 	}
@@ -52,7 +57,49 @@ public class Student extends User{
 		super(email, firstName, lastName);	
 		this.setPassword("5tud3nt");
 		this.setCategory(2);
-		//this.homework = new ArrayList<Homework>();
+		this.homework = new ArrayList<Homework>();
+	}
+
+	/**
+	 * @return the grade
+	 */
+	public Grade getGrade() {
+		return grade;
+	}
+
+	/**
+	 * @param grade the grade to set
+	 */
+	public void setGrade(Grade grade) {
+		this.grade = grade;
+	}
+
+	/**
+	 * @return the group
+	 */
+	public Group getGroup() {
+		return group;
+	}
+
+	/**
+	 * @param group the group to set
+	 */
+	public void setGroup(Group group) {
+		this.group = group;
+	}
+
+	/**
+	 * @return the homework
+	 */
+	public List<Homework> getHomework() {
+		return homework;
+	}
+
+	/**
+	 * @param homework the homework to set
+	 */
+	public void setHomework(List<Homework> homework) {
+		this.homework = homework;
 	}
 	
 }

@@ -3,8 +3,12 @@
  */
 package com.projectERA.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -18,8 +22,8 @@ import javax.persistence.Table;
 @Inheritance
 public class Teacher extends User {
 
-//	@ManyToMany
-//	private List<Subject> subjects;
+	@ManyToMany
+	private List<Subject> subjects;
 	
 	/**
 	 * constructor by default for the Teacher entity
@@ -63,21 +67,21 @@ public class Teacher extends User {
 		super(email, firstName, lastName);
 		this.setPassword("t34ch3r");
 		this.setCategory(1);
-//		this.subjects = new ArrayList<Subject>();;
+		this.subjects = new ArrayList<Subject>();;
 	}
 
 	/**
 	 * @return the subjects
 	 */
-//	public List<Subject> getSubjects() {
-//		return subjects;
-//	}
+	public List<Subject> getSubjects() {
+		return subjects;
+	}
 
 	/**
 	 * @param subjects the subjects to set
 	 */
-//	public void setSubjects(List<Subject> subjects) {
-//		this.subjects = subjects;
-//	}
+	public void setSubjects(List<Subject> subjects) {
+		this.subjects = subjects;
+	}
 
 }

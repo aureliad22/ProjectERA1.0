@@ -6,7 +6,7 @@ import com.projectERA.manager.base.BaseManager;
 import com.projectERA.manager.interfaces.IHomeworkManager;
 import com.projectERA.model.Homework;
 
-@Service
+//@Service
 public class HomeworkManager extends BaseManager<Homework> implements IHomeworkManager {
 
 	
