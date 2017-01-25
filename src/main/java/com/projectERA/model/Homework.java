@@ -1,29 +1,37 @@
 package com.projectERA.model;
 
+
+
+
+
 import java.util.Date;
 
+
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
 import javax.persistence.Table;
+
 
 import com.projectERA.model.base.EntityBase;
 
-//HomeWork
-//@Entity
-//@Table(name = "homework")
+
+@Entity
+@Table(name = "homeworks")
+@Inheritance
 public class Homework extends EntityBase{
-	
-	private String title;	
+
+	private String title;
 	private Date deposedAt;
 	private String document;
 	
 	public Homework(){		
 	}
 	
-	public Homework(int id){
+	public Homework(Integer id){
 		super(id);
 	}
 	
-	public Homework(int id, String title, String document) {
+	public Homework(Integer id, String title,String document) {
 		super(id);
 		this.title = title;
 		this.document = document;
