@@ -11,6 +11,7 @@ import javax.naming.directory.SearchControls;
 import javax.naming.directory.SearchResult;
 import javax.naming.ldap.LdapContext;
 
+import com.projectERA.model.Teacher;
 import com.projectERA.model.User;
 
 public class UserLdap {
@@ -52,7 +53,7 @@ public class UserLdap {
     private User attToUser(Attributes attributes) {
         User user = null;
         try {
-            user = new User();
+            user = new Teacher();
 
             Attribute guid = attributes.get(LdapUtils.ATTRIBUTE_GUID);
             Attribute firstname = attributes.get(LdapUtils.ATTRIBUTE_FIRSTNAME);
@@ -70,10 +71,6 @@ public class UserLdap {
 
             if (lastname != null) {
                 user.setLastName(lastname.get().toString());
-            }
-
-            if (displayName != null) {
-                user.setDisplayName(displayName.get().toString());
             }
 
             if (email != null) {
