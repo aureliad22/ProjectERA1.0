@@ -10,7 +10,7 @@ public abstract class EntityBase {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 
 	public EntityBase(){		
 	}

@@ -4,32 +4,34 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import com.projectERA.model.base.EntityBase;
 
-//@Entity
-//@Table(name = "subjects")
+@Entity
+@Table(name = "subjects")
+@Inheritance
 public class Subject extends EntityBase{
 	
-//	@NotNull
+	@NotNull
 	private String title;
 	
-//	@NotNull
+	@NotNull
 	private Date deadline;
 	
-//	@NotNull
+	@NotNull
 	private int groupSize; 
 	
-//	@NotNull
+	@NotNull
 	private String description;
 	
-//	@NotNull
+	@NotNull
 	private String specialty;
 	
 	private Date createAt;
-	private int idPromo;
+	private Integer idPromo;
 
 
 	private ArrayList<Teacher> authors;
@@ -38,7 +40,7 @@ public class Subject extends EntityBase{
 	public Subject(){		
 	}
 
-	public Subject(int id){
+	public Subject(Integer id){
 		super(id);
 	}
 	
@@ -50,8 +52,8 @@ public class Subject extends EntityBase{
 	 * @param description
 	 * @param idPromo
 	 */
-	public Subject(int id, String title, Date deadline, int groupSize, String description,
-			int idPromo, String specialty, ArrayList<Teacher> Authors) {
+	public Subject(Integer id, String title, Date deadline, Integer groupSize, String description,
+			Integer idPromo, String specialty, ArrayList<Teacher> Authors) {
 		super(id);	
 		this.title = title;
 		this.deadline = deadline;
@@ -175,7 +177,7 @@ public class Subject extends EntityBase{
 	/**
 	 * @param idPromo the idPromo to set
 	 */
-	public void setIdPromo(int idPromo) {
+	public void setIdPromo(Integer idPromo) {
 		this.idPromo = idPromo;
 	}
 
