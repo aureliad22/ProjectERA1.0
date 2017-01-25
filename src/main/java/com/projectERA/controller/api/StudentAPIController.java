@@ -20,9 +20,9 @@ public class StudentAPIController {
 	 */
 	@RequestMapping(value = "/students/create")
 	@ResponseBody
-	public String create(String firstname, String lastname, String login, String password, String email) {
+	public String create(String firstname, String lastname, String login, String password, String email, int category) {
 		try {
-			Student student = new Student(firstname, lastname, login, password, email);
+			Student student = new Student(firstname, lastname, login, password, email, category);
 			studentManager.create(student);
 		} catch (Exception ex) {
 			return "Error creating the student: " + ex.toString();

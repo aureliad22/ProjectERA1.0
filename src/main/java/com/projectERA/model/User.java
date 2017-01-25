@@ -3,6 +3,7 @@ package com.projectERA.model;
 import javax.persistence.Column;
 import javax.persistence.Inheritance;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Transient;
 
 import com.projectERA.model.base.EntityBase;
 
@@ -27,8 +28,11 @@ public abstract class User extends EntityBase {
 	@Column(name="password", nullable=false)
 	private String password;
 	
-//	@Column(name="categoryId", nullable=false)
-//	private int categoryId;
+	@Column(name="category", nullable=false)
+	private int category;
+	
+	@Transient
+    private String ldapGUID;
 
 	// Public methods
 
@@ -44,6 +48,13 @@ public abstract class User extends EntityBase {
 		this.password = password;
 	}
 
+	public User(String email, String login, String firstName, String lastName, String password) {
+		this.email = email;
+		this.login = login;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.password = password;
+	}
 
 	/**
 	 * @param email
@@ -52,12 +63,22 @@ public abstract class User extends EntityBase {
 	 * @param lastName
 	 * @param password
 	 */
-	public User(String email, String login, String firstName, String lastName, String password) {
+	public User(String email, String login, String firstName, String lastName, String password, int category) {
 		this.email = email;
 		this.login = login;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
+		this.category = category;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "User [" + super.toString() + "email=" + email + ", login=" + login + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", password=" + password + ", ldapGUID=" + ldapGUID + "]";
 	}
 
 	/**
@@ -134,6 +155,34 @@ public abstract class User extends EntityBase {
 	 */
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	/**
+	 * @return the categoryId
+	 */
+	public int getCategory() {
+		return category;
+	}
+
+	/**
+	 * @param categoryId the categoryId to set
+	 */
+	public void setCategory(int category) {
+		this.category = category;
+	}
+
+	/**
+	 * @return the ldapGUID
+	 */
+	public String getLdapGUID() {
+		return ldapGUID;
+	}
+
+	/**
+	 * @param ldapGUID the ldapGUID to set
+	 */
+	public void setLdapGUID(String ldapGUID) {
+		this.ldapGUID = ldapGUID;
 	}
 
 }

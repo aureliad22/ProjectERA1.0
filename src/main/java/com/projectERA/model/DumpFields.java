@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import com.projectERA.model.base.EntityBase;
 
 public class DumpFields {
-	public static <T> ArrayList<String> inspect(Class<T> klazz) {
+	public static <T> ArrayList<String> inspect(Class<T> superClasse) {
 		ArrayList<String> attributs = new ArrayList<String>();
 		Field[] fields;
-		Class superClass = klazz;
+		Class superClass = superClasse;
 
 		fields = superClass.getDeclaredFields();
 		for (Field field : fields) {

@@ -16,7 +16,7 @@ public class Student extends User{
 //	private Group group;
 //	
 //	@OneToMany
-//	ArrayList<Homework>homework;
+//	List<Homework>homework;
 	
 	public Student(){ 
 	}
@@ -31,15 +31,17 @@ public class Student extends User{
 
 	/**
 	 * @param email
-	 * @param userName
+	 * @param login
 	 * @param firstName
 	 * @param lastName
+	 * @param grade
+	 * @param group
+	 * @param homework
 	 */
-	public Student(String email, String userName, String firstName, String lastName, String password) {
-		super(email, userName, firstName, lastName, password);
-//		this.grade = grade;
-//		this.homework = homework;
+	public Student(String email, String login, String firstName, String lastName, String password, int category) {
+		super(email, login, firstName, lastName, password);	
+		this.setCategory(2);
+		//this.homework = new ArrayList<Homework>();
 	}
-
 	
 }
