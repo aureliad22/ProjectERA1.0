@@ -11,9 +11,9 @@ import javax.persistence.Table;
  * Administrator entity
  * @author aureliadelaune
  */
-//@Entity
-//@Table(name = "administrator")
-//@Inheritance
+@Entity
+@Table(name = "administrator")
+@Inheritance
 public class Administrator extends User {
 
 	/**

@@ -7,9 +7,9 @@ import javax.persistence.Table;
 
 import com.projectERA.model.base.EntityBase;
 
-//HomeWork
-//@Entity
-//@Table(name = "homework")
+
+@Entity
+@Table(name = "homework")
 public class Homework extends EntityBase{
 	
 	private String title;	
@@ -19,11 +19,11 @@ public class Homework extends EntityBase{
 	public Homework(){		
 	}
 	
-	public Homework(int id){
+	public Homework(Integer id){
 		super(id);
 	}
 	
-	public Homework(int id, String title, String document) {
+	public Homework(Integer id, String title, String document) {
 		super(id);
 		this.title = title;
 		this.document = document;
