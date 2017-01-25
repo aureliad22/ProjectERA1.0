@@ -5,25 +5,28 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.projectERA.manager.interfaces.IStudentManager;
+import com.projectERA.dao.interfaces.IStudentDao;
 import com.projectERA.model.Student;
 
 @Controller
 public class StudentAPIController {
 
+	/**
+	 * Recover the StudentDao from IStudentDao to use within this controller.
+	 */
 	@Autowired
-	private IStudentManager studentManager;
+	private IStudentDao studentDao;
 	
 	/**
-	 * Create a new user with an auto-generated id and email and name as passed
+	 * Create a new Student with an auto-generated id and email/lastname/firstname as passed
 	 * values.
 	 */
 	@RequestMapping(value = "/students/create")
 	@ResponseBody
-	public String create(String firstname, String lastname, String login, String password, String email, int category) {
+	public String create(String firstname, String lastname, String email) {
 		try {
-			Student student = new Student(firstname, lastname, login, password, email, category);
-			studentManager.create(student);
+			Student student = new Student(firstname, lastname, email);
+			studentDao.create(student);
 		} catch (Exception ex) {
 			return "Error creating the student: " + ex.toString();
 		}
@@ -31,14 +34,14 @@ public class StudentAPIController {
 	}
 
 	/**
-	 * Delete the user with the passed id.
+	 * Delete the identified student.
 	 */
 	@RequestMapping(value = "/students/delete")
 	@ResponseBody
 	public String delete(Integer id) {
 		try {
 			Student student = new Student(id);
-			studentManager.delete(student);
+			studentDao.delete(student);
 		} catch (Exception ex) {
 			return "Error deleting the student: " + ex.toString();
 		}
@@ -46,39 +49,21 @@ public class StudentAPIController {
 	}
 
 	/**
-	 * Update the email and the name for the user indentified by the passed id.
+	 * Update the email and names for the identified student.
 	 */
 	@RequestMapping(value = "/students/update")
 	@ResponseBody
-	public String updateName(Integer id, String firstname, String lastname, String login, String password, String email) {
+	public String updateName(Integer id, String firstname, String lastname, String email) {
 		try {
-			Student student = studentManager.getById(id);
+			Student student = studentDao.getById(id);
 			student.setFirstName(firstname);
 			student.setLastName(lastname);
-			student.setLogin(login);
-			student.setPassword(password);
 			student.setEmail(email);
-			studentManager.update(student);
+			studentDao.update(student);
 		} catch (Exception ex) {
 			return "Error updating the student: " + ex.toString();
 		}
 		return "Student succesfully updated!";
 	}
-	
-//	  /**
-//	   * Retrieve the id for the user with the passed email address.
-//	   */
-//	  @RequestMapping(value="/get-by-email")
-//	  @ResponseBody
-//	  public String getByEmail(String email) {
-//	    String studentId;
-//	    try {
-//	      Student student = studentManager.getByEmail(email);
-//	      studentId = String.valueOf(student.getId());
-//	    }
-//	    catch (Exception ex) {
-//	      return "User not found: " + ex.toString();
-//	    }
-//	    return "The user id is: " + studentId;
-//	  }
+
 }

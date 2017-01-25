@@ -16,9 +16,6 @@ public abstract class User extends EntityBase {
 	@Column(name="email", nullable=false)
 	private String email;
 
-	@Column(name="login", nullable=false)
-	private String login;
-
 	@Column(name="firstname", nullable=false)
 	private String firstName;
 	
@@ -47,13 +44,12 @@ public abstract class User extends EntityBase {
 		this.email = email;
 		this.password = password;
 	}
+	
 
-	public User(String email, String login, String firstName, String lastName, String password) {
+	public User(String email, String firstName, String lastName) {
 		this.email = email;
-		this.login = login;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.password = password;
 	}
 
 	/**
@@ -63,9 +59,8 @@ public abstract class User extends EntityBase {
 	 * @param lastName
 	 * @param password
 	 */
-	public User(String email, String login, String firstName, String lastName, String password, int category) {
+	public User(String email, String firstName, String lastName, String password, int category) {
 		this.email = email;
-		this.login = login;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
@@ -77,7 +72,7 @@ public abstract class User extends EntityBase {
 	 */
 	@Override
 	public String toString() {
-		return "User [" + super.toString() + "email=" + email + ", login=" + login + ", firstName=" + firstName + ", lastName=" + lastName
+		return "User [" + super.toString() + "email=" + email + ", firstName=" + firstName + ", lastName=" + lastName
 				+ ", password=" + password + ", ldapGUID=" + ldapGUID + "]";
 	}
 
@@ -94,22 +89,6 @@ public abstract class User extends EntityBase {
 	 */
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-
-
-	/**
-	 * @return the login
-	 */
-	public String getLogin() {
-		return login;
-	}
-
-	/**
-	 * @param login the login to set
-	 */
-	public void setLogin(String login) {
-		this.login = login;
 	}
 
 	/**

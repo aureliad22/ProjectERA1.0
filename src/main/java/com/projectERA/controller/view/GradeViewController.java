@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.projectERA.manager.interfaces.IGradeManager;
+import com.projectERA.dao.interfaces.IGradeDao;
 import com.projectERA.model.DumpFields;
 import com.projectERA.model.Grade;
 
@@ -15,7 +15,7 @@ import com.projectERA.model.Grade;
 @Controller
 public class GradeViewController {
 	@Autowired
-	private IGradeManager gradeManager;
+	private IGradeDao gradeDao;
 	
 	@GetMapping("/grades/create")
 	public String userCreate(Model model) {
@@ -26,7 +26,7 @@ public class GradeViewController {
 	@PostMapping("/grades/create")
 	public String itemTestRetreiver(@ModelAttribute Grade grade){
 		System.out.println(grade);
-		gradeManager.create(grade);
+		gradeDao.create(grade);
 
 		String redirectUrl = "/";
 	    return "redirect:" + redirectUrl;

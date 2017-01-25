@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.projectERA.manager.interfaces.ITeacherManager;
+import com.projectERA.dao.interfaces.ITeacherDao;
 import com.projectERA.model.DumpFields;
 import com.projectERA.model.Teacher;
 
@@ -15,7 +15,7 @@ import com.projectERA.model.Teacher;
 @Controller
 public class TeacherViewController {
 	@Autowired
-	private ITeacherManager teacherManager;
+	private ITeacherDao teacherDao;
 	
 	@GetMapping("/teachers/create")
 	public String userCreate(Model model) {
@@ -27,7 +27,7 @@ public class TeacherViewController {
 	public String itemTestRetreiver(@ModelAttribute Teacher teacher){
 		/*Teacher teacher = new Teacher(firstname, lastname, login, password);*/
 		System.out.println(teacher);
-		teacherManager.create(teacher);
+		teacherDao.create(teacher);
 
 		String redirectUrl = "/";
 	    return "redirect:" + redirectUrl;

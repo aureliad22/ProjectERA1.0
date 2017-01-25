@@ -31,6 +31,16 @@ public class Student extends User{
 
 	/**
 	 * @param email
+	 * @param firstName
+	 * @param lastName
+	 */
+	public Student(String email, String firstName, String lastName) {
+		super(email, firstName, lastName);
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @param email
 	 * @param login
 	 * @param firstName
 	 * @param lastName
@@ -38,8 +48,9 @@ public class Student extends User{
 	 * @param group
 	 * @param homework
 	 */
-	public Student(String email, String login, String firstName, String lastName, String password, int category) {
-		super(email, login, firstName, lastName, password);	
+	public Student(String email, String firstName, String lastName, String password, int category) {
+		super(email, firstName, lastName);	
+		this.setPassword("5tud3nt");
 		this.setCategory(2);
 		//this.homework = new ArrayList<Homework>();
 	}

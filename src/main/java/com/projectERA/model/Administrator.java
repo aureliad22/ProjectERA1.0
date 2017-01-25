@@ -30,14 +30,26 @@ public class Administrator extends User {
 		super(id);
 	}
 
-
 	/**
 	 * @param email
 	 * @param userName
 	 * @param firstName
 	 * @param lastName
 	 */
-	public Administrator(String email, String login, String firstName, String lastName, String password) {
-		super(email, login, firstName, lastName, password);
+	public Administrator(String email, String firstName, String lastName) {
+		super(email, firstName, lastName);
+	}
+
+	/**
+	 * @param email
+	 * @param firstName
+	 * @param lastName
+	 * @param password
+	 * @param category
+	 */
+	public Administrator(String email, String firstName, String lastName, String password, int category) {
+		super(email, firstName, lastName);
+		this.setPassword("4dm1n");
+		this.setCategory(0);
 	}
 }

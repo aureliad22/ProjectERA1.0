@@ -1,5 +1,7 @@
 package com.projectERA.dao;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import com.projectERA.dao.base.BaseDao;
@@ -20,7 +22,15 @@ public class TeacherDao extends BaseDao<Teacher> implements ITeacherDao {
 	 * Return the teacher having the passed email.
 	 */
 	public Teacher getByEmail(String email) {
-		return (Teacher) entityManager.createQuery("from Teacher where email = :email").setParameter("email", email)
-				.getSingleResult();
+		return (Teacher) entityManager.createQuery("select T from Teacher where email = :email")
+				.setParameter("email", email).getSingleResult();
 	}
+	
+//	/**
+//	 * Return the teacher having the passed lastname.
+//	 */
+//	public Teacher getByName(String lastName) {
+//		  return (Teacher) entityManager.createQuery("select T from Teacher where T.lastname = :lastName")
+//				  .setParameter("lastname", lastName).getSingleResult();
+//	}
 }

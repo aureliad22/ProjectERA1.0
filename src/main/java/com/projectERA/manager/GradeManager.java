@@ -6,7 +6,7 @@ import com.projectERA.manager.base.BaseManager;
 import com.projectERA.manager.interfaces.IGradeManager;
 import com.projectERA.model.Grade;
 
-@Service
+//@Service
 public class GradeManager extends BaseManager<Grade> implements IGradeManager  {
 
 }
