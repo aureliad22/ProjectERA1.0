@@ -6,24 +6,31 @@ package com.projectERA.model;
 
 import java.util.Date;
 
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.Table;
-
 
 import com.projectERA.model.base.EntityBase;
 
 
 @Entity
-@Table(name = "homeworks")
+@Table(name = "homework")
 @Inheritance
 public class Homework extends EntityBase{
 
+	@Column(name="title")
 	private String title;
-	private Date deposedAt;
+	
+	@Column(name="creationDate")
+	private Date droppedAt;
+	
+	@Column(name="document")
 	private String document;
 	
+	/**
+	 * public methods.
+	 */
 	public Homework(){		
 	}
 	
@@ -35,20 +42,28 @@ public class Homework extends EntityBase{
 		super(id);
 		this.title = title;
 		this.document = document;
-		this.deposedAt = new Date();
+		this.droppedAt = new Date();
 	}
 	
+	/**
+	 * Drop the homework in the dropbox.
+	 */
 	public void addDocument(){
 		
 		
 	}
+	
+	/**
+	 * Delete the dropped homework.
+	 */
 	public void deleteDocument(){
 		
 	}
+	
+	/**
+	 * Consult the dropped homework.
+	 */
 	public void consult(){
-		
-	}
-	public void download(){
 		
 	}
 
@@ -70,14 +85,14 @@ public class Homework extends EntityBase{
 	 * @return the deposedAt
 	 */
 	public Date getDeposedAt() {
-		return deposedAt;
+		return droppedAt;
 	}
 
 	/**
 	 * @param deposedAt the deposedAt to set
 	 */
 	public void setDeposedAt(Date deposedAt) {
-		this.deposedAt = deposedAt;
+		this.droppedAt = deposedAt;
 	}
 
 	/**
