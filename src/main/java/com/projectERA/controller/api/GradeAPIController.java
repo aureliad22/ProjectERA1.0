@@ -22,7 +22,7 @@ public class GradeAPIController {
 	 */
 	@RequestMapping(value = "/grades/create")
 	@ResponseBody
-	public String create(String name, Year year) {
+	public String create(String name, String year) {
 		try {
 			Grade grade = new Grade(name, year);
 			gradeManager.create(grade);
@@ -52,7 +52,7 @@ public class GradeAPIController {
 	 */
 	@RequestMapping(value = "/grades/update")
 	@ResponseBody
-	public String updateName(Integer id, String name, Year year) {
+	public String updateName(Integer id, String name, String year) {
 		try {
 			Grade grade = gradeManager.getById(id);
 			grade.setName(name);;
