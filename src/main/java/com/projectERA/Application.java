@@ -3,6 +3,7 @@ package com.projectERA;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
 import com.projectERA.dao.AdministratorDao;
@@ -19,11 +20,13 @@ import com.projectERA.dao.interfaces.IHomeworkDao;
 import com.projectERA.dao.interfaces.IStudentDao;
 import com.projectERA.dao.interfaces.ISubjectDao;
 import com.projectERA.dao.interfaces.ITeacherDao;
+import com.projectERA.storage.StorageProperties;
 import com.projectERA.storage.StorageService;
 
 
 
 @SpringBootApplication
+@EnableConfigurationProperties(StorageProperties.class)
 public class Application implements CommandLineRunner {
 
 	public static void main(String[] args) {
@@ -37,6 +40,7 @@ public class Application implements CommandLineRunner {
 
 		this.repository.save(user);*/
 	}
+	
 	@Bean
 	CommandLineRunner init(StorageService storageService) {
 		return (args) -> {

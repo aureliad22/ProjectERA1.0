@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -24,15 +25,14 @@ import com.projectERA.storage.StorageService;
 
 @Controller
 public class FileUploadController {
-
     private final StorageService storageService;
 
-    @Autowired
+    @Autowired 
     public FileUploadController(StorageService storageService) {
         this.storageService = storageService;
     }
 
-    @GetMapping("/uploadfile")
+    @GetMapping("/students/uploadfile")
     public String listUploadedFiles(Model model) throws IOException {
 
         model.addAttribute("files", storageService
