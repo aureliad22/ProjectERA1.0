@@ -16,7 +16,8 @@ public class AdministratorDao extends BaseDao<Administrator> implements IAdminis
 	}
 
 	public Administrator getByEmail(String email) {
-		return (Administrator) entityManager.createQuery("from Administrator where email = :email").setParameter("email", email)
+		return (Administrator) entityManager.createQuery("select * from Administrator where email = :email")
+				.setParameter("email", email)
 				.getSingleResult();
 	}
 	

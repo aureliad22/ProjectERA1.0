@@ -55,36 +55,36 @@ public class Application implements CommandLineRunner {
 	public ITeacherDao getTeacherDao() {
 		return new TeacherDao();
 	}
-
-	@Bean
-	public ITeacherManager getTeacherManager() {
-		return new TeacherManager();
-	}
+	
+//	@Bean
+//	public ITeacherManager getTeacherManager() {
+//		return new TeacherManager();
+//	}
 
 	@Bean
 	public IStudentDao getStudentDao() {
 		return new StudentDao();
 	}
 
-	@Bean
-	public IStudentManager getStudentManager() {
-		return new StudentManager();
-	}
+//	@Bean
+//	public IStudentManager getStudentManager() {
+//		return new StudentManager();
+//	}
 
 	@Bean
 	public IGradeDao getGradeDao() {
 		return new GradeDao();
 	}
 	
-	@Bean
-	public IGradeManager getGradeManager() {
-		return new GradeManager();
-	}
+//	@Bean
+//	public IGradeManager getGradeManager() {
+//		return new GradeManager();
+//	}
 	
-	@Bean
-	public IAdministratorManager getAdministratorManager(){
-		return new AdministratorManager();
-	}
+//	@Bean
+//	public IAdministratorManager getAdministratorManager(){
+//		return new AdministratorManager();
+//	}
 	
 	@Bean
 	public IAdministratorDao getAdministratorDao(){

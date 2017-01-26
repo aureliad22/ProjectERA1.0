@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.projectERA.manager.interfaces.IAdministratorManager;
+import com.projectERA.dao.interfaces.IAdministratorDao;
 import com.projectERA.model.Administrator;
 import com.projectERA.model.DumpFields;
 
@@ -15,7 +15,7 @@ import com.projectERA.model.DumpFields;
 @Controller
 public class AdministratorViewController {
 	@Autowired
-	private IAdministratorManager administratorManager;
+	private IAdministratorDao administratorDao;
 	
 	@GetMapping("/administrators/create")
 	public String userCreate(Model model) {
@@ -27,7 +27,7 @@ public class AdministratorViewController {
 	public String itemTestRetreiver(@ModelAttribute Administrator administrator){
 
 		System.out.println(administrator);
-		administratorManager.create(administrator);
+		administratorDao.create(administrator);
 
 		String redirectUrl = "/";
 	    return "redirect:" + redirectUrl;

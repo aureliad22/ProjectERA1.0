@@ -6,7 +6,7 @@ import com.projectERA.manager.base.BaseManager;
 import com.projectERA.manager.interfaces.ISubjectManager;
 import com.projectERA.model.Subject;
 
-@Service
+//@Service
 public class SubjectManager extends BaseManager<Subject> implements ISubjectManager {
 
 }

@@ -6,7 +6,7 @@ import com.projectERA.manager.base.BaseManager;
 import com.projectERA.manager.interfaces.IGroupManager;
 import com.projectERA.model.Group;
 
-@Service
+//@Service
 public class GroupManager extends BaseManager<Group> implements IGroupManager{
 
 }

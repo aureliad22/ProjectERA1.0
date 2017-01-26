@@ -17,7 +17,8 @@ public class StudentDao extends BaseDao<Student> implements IStudentDao{
 	 * Return the teacher having the passed email.
 	 */
 	public Student getByEmail(String email) {
-		return (Student) entityManager.createQuery("from Student where email = :email").setParameter("email", email)
+		return (Student) entityManager.createQuery("select * from Student where email = :email")
+				.setParameter("email", email)
 				.getSingleResult();
 	}
 }

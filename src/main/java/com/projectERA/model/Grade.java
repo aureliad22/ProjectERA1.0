@@ -18,7 +18,7 @@ public class Grade extends EntityBase {
 	private String name;
 	
 	@NotNull
-	private Year year;
+	private String year;
 	
 	
 	public Grade(){		
@@ -28,7 +28,7 @@ public class Grade extends EntityBase {
 		super(id);
 	}
 
-	public Grade(String name, Year year) {
+	public Grade(String name, String year) {
 		this.name = name;
 		this.year = year;
 	}
@@ -37,7 +37,7 @@ public class Grade extends EntityBase {
 	 * @param name
 	 * @param year
 	 */
-	public Grade(Integer id, String name, Year year) {
+	public Grade(Integer id, String name, String year) {
 		super(id);
 		this.name = name;
 		this.year = year;
@@ -62,7 +62,7 @@ public class Grade extends EntityBase {
 	/**
 	 * @return the year
 	 */
-	public Year getYear() {
+	public String getYear() {
 		return year;
 	}
 
@@ -70,7 +70,7 @@ public class Grade extends EntityBase {
 	/**
 	 * @param year the year to set
 	 */
-	public void setYear(Year year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
 }
