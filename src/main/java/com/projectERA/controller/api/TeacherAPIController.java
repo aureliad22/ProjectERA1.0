@@ -5,25 +5,28 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.projectERA.manager.interfaces.ITeacherManager;
+import com.projectERA.dao.interfaces.ITeacherDao;
 import com.projectERA.model.Teacher;
 
 @Controller
 public class TeacherAPIController {
 
+	/**
+	 * Recover the TeacherDao from ITeacherDao to use within this controller.
+	 */
 	@Autowired
-	private ITeacherManager teacherManager;
+	private ITeacherDao teacherDao;
 
 	/**
-	 * Create a new user with an auto-generated id and email and name as passed
+	 * Create a new Teacher with an auto-generated id, and email/lastname/firstname as passed
 	 * values.
 	 */
 	@RequestMapping(value = "/teachers/create")
 	@ResponseBody
-	public String create(String firstname, String lastname, String login, String password, String email) {
+	public String create(String firstname, String lastname, String email) {
 		try {
-			Teacher teacher = new Teacher(firstname, lastname, login, password, email);
-			teacherManager.create(teacher);
+			Teacher teacher = new Teacher(firstname, lastname, email);
+			teacherDao.create(teacher);
 		} catch (Exception ex) {
 			return "Error creating the teacher: " + ex.toString();
 		}
@@ -31,14 +34,14 @@ public class TeacherAPIController {
 	}
 
 	/**
-	 * Delete the user with the passed id.
+	 * Delete the identified teacher.
 	 */
 	@RequestMapping(value = "/teachers/delete")
 	@ResponseBody
 	public String delete(Integer id) {
 		try {
 			Teacher teacher = new Teacher(id);
-			teacherManager.delete(teacher);
+			teacherDao.delete(teacher);
 		} catch (Exception ex) {
 			return "Error deleting the teacher: " + ex.toString();
 		}
@@ -46,18 +49,17 @@ public class TeacherAPIController {
 	}
 
 	/**
-	 * Update the email and the name for the user indentified by the passed id.
+	 * Update the email and names for the identified teacher.
 	 */
 	@RequestMapping(value = "/teachers/update")
 	@ResponseBody
-	public String updateName(Integer id, String firstname, String lastname, String login, String password) {
+	public String updateName(Integer id, String firstname, String lastname, String email) {
 		try {
-			Teacher teacher = teacherManager.getById(id);
+			Teacher teacher = teacherDao.getById(id);
+			teacher.setEmail(email);
 			teacher.setFirstName(firstname);
 			teacher.setLastName(lastname);
-			teacher.setLogin(login);
-			teacher.setPassword(password);
-			teacherManager.update(teacher);
+			teacherDao.update(teacher);
 		} catch (Exception ex) {
 			return "Error updating the teacher: " + ex.toString();
 		}
@@ -67,17 +69,17 @@ public class TeacherAPIController {
 //	  /**
 //	   * Retrieve the id for the user with the passed email address.
 //	   */
-//	  @RequestMapping(value="/get-by-email")
+//	  @RequestMapping(value="/teachers/getByEmail")
 //	  @ResponseBody
 //	  public String getByEmail(String email) {
 //	    String teacherId;
 //	    try {
-//	      Teacher teacher = teacherManager.getByEmail(email);
+//	      Teacher teacher = teacherDao.getByEmail(email);
 //	      teacherId = String.valueOf(teacher.getId());
 //	    }
 //	    catch (Exception ex) {
-//	      return "User not found: " + ex.toString();
+//	      return "Teacher not found: " + ex.toString();
 //	    }
-//	    return "The user id is: " + teacherId;
+//	    return "The teacher's email is: " + teacherId;
 //	  }
 }

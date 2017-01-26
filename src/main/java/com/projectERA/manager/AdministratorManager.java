@@ -6,7 +6,7 @@ import com.projectERA.manager.base.BaseManager;
 import com.projectERA.manager.interfaces.IAdministratorManager;
 import com.projectERA.model.Administrator;
 
-@Service
+//@Service
 public class AdministratorManager extends BaseManager<Administrator> implements IAdministratorManager{
 
 }

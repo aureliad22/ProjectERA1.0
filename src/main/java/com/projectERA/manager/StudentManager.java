@@ -6,7 +6,7 @@ import com.projectERA.manager.base.BaseManager;
 import com.projectERA.manager.interfaces.IStudentManager;
 import com.projectERA.model.Student;
 
-@Service
+//@Service
 public class StudentManager extends BaseManager<Student> implements IStudentManager  {
 
 }
