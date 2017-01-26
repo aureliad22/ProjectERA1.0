@@ -28,30 +28,33 @@
 
 <body>
 	<div class="image" align="center">
-	     <img src="fonts/imielogo.png" />
+	     <img src="/fonts/imielogo.png" />
 	</div>
 	
 	<h2 id="welcome">Bienvenue sur la plateforme de dépôt de l'IMIE</h2>
 
 		<ul id="choix">
-			<button id="button1" class="btn btn-default btn-block" type="submit">
-	                <a href="loginStudent"><span class="glyphicon glyphicon-triangle-right" aria-hidden="false"></span>
-	                Se connecter en tant qu'étudiant</a>
-	        </button>
+	         <a href="/students/login">		
+	                <button id="button1" class="btn btn-default btn-primary btn-block" type="submit">
+<span class="glyphicon glyphicon-triangle-right" aria-hidden="false"></span>
+	                Se connecter en tant qu'étudiant
+	        </button></a>
 	            <br/>   		
-				<br/>
+
 			
-			<button id="button2" class="btn btn-default btn-block" type="submit">
-	                <a href="loginTeacher"><span class="glyphicon glyphicon-triangle-right"></span>
-					Se connecter en tant qu'enseignant</a>
+		<a href="/teachers/login">
+			<button id="button2" class="btn btn-default btn-primary btn-block" type="submit">
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+				Se connecter en tant qu'enseignant
 			</button>
-				<br/>
+		</a>
 				<br/>
 				
-			<button id="button3" class="btn btn-default btn-block" type="submit">
-	                <a href="browseArchives"><span class="glyphicon glyphicon-triangle-right" aria-hidden="false"></span>
-					Accéder aux archives</a>
-			</button>
+			<a href="/archives/browse">
+			<button id="button3" class="btn btn-default btn-primary btn-block" type="submit">
+	                <span class="glyphicon glyphicon-triangle-right" aria-hidden="false"></span>
+					Accéder aux archives
+			</button></a>
 				<br/>
 		</ul>
 	
