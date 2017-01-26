@@ -3,6 +3,7 @@ package com.projectERA.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.ManyToOne;
@@ -14,12 +15,15 @@ import javax.persistence.Table;
 @Inheritance
 public class Student extends User{
 
+	//many students in 1 grade.
 	@ManyToOne
 	private Grade grade;
 	
+	//many students in 1 group.
 	@ManyToOne
 	private Group group;
 	
+	//1 student has many homework.
 	@OneToMany
 	private List<Homework>homework;
 	

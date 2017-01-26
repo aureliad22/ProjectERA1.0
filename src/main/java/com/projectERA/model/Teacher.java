@@ -22,6 +22,7 @@ import javax.persistence.Table;
 @Inheritance
 public class Teacher extends User {
 
+	//1 teacher has many subjects.
 	@ManyToMany
 	private List<Subject> subjects;
 	
