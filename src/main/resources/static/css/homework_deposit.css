@@ -1,0 +1,11 @@
+#button1{
+position: absolute;
+right: 400px;
+bottom: 250px;
+ }
+
+#button2{
+position: absolute;
+left: 400px;
+bottom: 250px;
+}
