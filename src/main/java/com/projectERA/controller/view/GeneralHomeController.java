@@ -19,10 +19,10 @@ public class GeneralHomeController {
 		return "loginStudent";
 	}
 	
-	@RequestMapping(method=RequestMethod.GET, path="/teachers/login")
-	public String loginEnseignant (Model model){
-		return "loginTeacher";
-	}
+//	@RequestMapping(method=RequestMethod.GET, path="/teachers/login")
+//	public String loginEnseignant (Model model){
+//		return "loginTeacher";
+//	}
 	
 	
 	@RequestMapping(method=RequestMethod.GET, path="/archives/browse")
