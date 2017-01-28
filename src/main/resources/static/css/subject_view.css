@@ -1,0 +1,31 @@
+table{
+	border-collapse: collapse;
+	margin: auto;
+}
+td{
+   border: 2px solid black;
+}
+th{
+	color:purple;
+}
+h1{
+	color:highlight;
+	text-decoration: underline;
+}
+body{
+	background-color:menu;
+}
+#button4{
+position: absolute;
+right: 490px;
+bottom: 300px;
+}
+
+
+
+#Etat1{
+	color: orange;
+}
+#Etat2{
+	color: green;
+}
