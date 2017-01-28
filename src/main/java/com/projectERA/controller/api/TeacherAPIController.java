@@ -1,7 +1,10 @@
 package com.projectERA.controller.api;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -64,7 +67,9 @@ public class TeacherAPIController {
 			return "Error updating the teacher: " + ex.toString();
 		}
 		return "Teacher succesfully updated!";
-	}
+		
+ }
+	
 
 //	  /**
 //	   * Retrieve the id for the user with the passed email address.
