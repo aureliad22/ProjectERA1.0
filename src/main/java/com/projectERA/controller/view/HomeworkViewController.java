@@ -14,6 +14,7 @@ import com.projectERA.model.Homework;
 
 @Controller
 public class HomeworkViewController {
+<<<<<<< HEAD
     @Autowired
     private IHomeworkDao homeworkDao;
    
@@ -31,6 +32,25 @@ public class HomeworkViewController {
         String redirectUrl = "/";
         return "redirect:" + redirectUrl;
     }
+=======
+	@Autowired
+	private IHomeworkDao homeworkDao;
+	
+	@GetMapping("/homeworks/create")
+	public String homeworkCreate(Model model){
+		model.addAttribute("attributs",DumpFields.<Homework>inspect(Homework.class));
+		return "homework_deposit";
+	}
+	
+	@PostMapping("/homeworks/create")
+	public String itemTestRetreiver(@ModelAttribute Homework homework){
+		System.out.println(homework);
+		homeworkDao.create(homework);
+
+		String redirectUrl = "/";
+	    return "redirect:" + redirectUrl;
+	}
+>>>>>>> master
 
 
 }

@@ -1,7 +1,10 @@
 package com.projectERA.controller.api;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -48,6 +51,18 @@ public class TeacherAPIController {
 		return "Teacher succesfully deleted!";
 	}
 
+
+	/**
+	* List All Teachers.
+	*/
+	@CrossOrigin(origins="localhost:4200")
+	@RequestMapping(value = "/teachers/getall")
+	@ResponseBody
+	public List<Teacher> getAll() {
+		List<Teacher> teachers= teacherDao.getAll();
+		return teachers;
+	}
+	
 	/**
 	 * Update the email and names for the identified teacher.
 	 */

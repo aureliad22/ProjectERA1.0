@@ -1,0 +1,32 @@
+body{
+	
+	background-color:menu;
+}
+h1{
+	color:highlight;
+	text-decoration: underline;
+}
+label{
+	font-family: serif;
+}
+
+#button1{
+position: absolute;
+right: 400px;
+bottom: 250px;
+ }
+
+#button2{
+position: absolute;
+right: 200px;
+bottom: 250px;
+}
+#button3{
+position: absolute;
+left: 500px;
+bottom: 250px;
+}
+
+
+	
+	
