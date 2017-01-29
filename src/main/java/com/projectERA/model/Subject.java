@@ -3,10 +3,14 @@ package com.projectERA.model;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 import com.projectERA.model.base.EntityBase;
 
@@ -15,26 +19,34 @@ import com.projectERA.model.base.EntityBase;
 @Inheritance
 public class Subject extends EntityBase{
 	
-	@NotNull
+	@Column(name="title", nullable=false)
 	private String title;
+		
+	@Column(name="creationDate", nullable=false)
+	private Date createAt;
 	
-	@NotNull
+	@Column(name="deadline", nullable=false)
 	private Date deadline;
 	
-	@NotNull
+	@Column(name="groupSize", nullable=false)
 	private int groupSize; 
 	
-	@NotNull
+	@Column(name="description", nullable=false)
 	private String description;
 	
-	@NotNull
+	@Column(name="specialty", nullable=false)
 	private String specialty;
 	
-	private Date createAt;
-	private Integer idPromo;
+	//many subjects for 1 author.
+	@ManyToOne
+	private Teacher author;
+	
+	//many subjects for many grades. Grade is the owner.
+	@ManyToOne
+	private Grade grade;
 
-
-	private ArrayList<Teacher> authors;
+	//1 subject has many homework
+//	@OneToMany
 	private ArrayList<Homework> homework = new ArrayList<Homework>();
 	
 	public Subject(){		
@@ -53,16 +65,16 @@ public class Subject extends EntityBase{
 	 * @param idPromo
 	 */
 	public Subject(Integer id, String title, Date deadline, Integer groupSize, String description,
-			Integer idPromo, String specialty, ArrayList<Teacher> Authors) {
+			Grade grade, String specialty, Teacher author) {
 		super(id);	
 		this.title = title;
 		this.deadline = deadline;
 		this.groupSize = groupSize;
 		this.description = description;
-		this.idPromo = idPromo;
-		this.specialty= specialty;
-		this.createAt= new Date();
-		this.authors=Authors;
+		this.setGrade(grade);
+		this.specialty = specialty;
+		this.createAt = new Date();
+		this.author = author;
 	}
 	
 	/* (non-Javadoc)
@@ -71,42 +83,12 @@ public class Subject extends EntityBase{
 	@Override
 	public String toString() {
 		return "Subject [title=" + title + ", deadline=" + deadline + ", groupSize=" + groupSize + ", description="
-				+ description + ", idPromo=" + idPromo + ", specialty=" + specialty + ", createAt=" + createAt
-				+ ", authors=" + authors + ", homework=" + homework + ", toString()=" + super.toString() + "]";
+				+ description + ", Grade=" + grade + ", specialty=" + specialty + ", createAt=" + createAt
+				+ ", teacher=" + author + ", homework=" + homework + ", toString()=" + super.toString() + "]";
 	}
 
-	public void createSubject(){
-		
-	}
 	
 	public void consultSubject(){
-		
-	}
-	
-	public void updateSubject(){
-		
-	}
-	
-	public void AjouterAuteur(Teacher t){
-		if (authors.size() < 2) {
-			authors.add(t);
-			System.out.println(t.getLastName() + " a �t� ajout� en tant qu'auteur");
-		} else {
-			System.out.println("err taille max d'auteurs");
-		}		
-	}
-	
-	public void RetirerAuteur(Teacher t){
-		if (authors.size() > 1) {
-			authors.remove(t);
-			System.out.println(t.getLastName() + " a �t� retir� de la liste d'auteurs");
-		} else {
-			System.out.println("plus d'auteur pour le [" +  title + "]. Dernier enseignant : " + t.getLastName());
-		}		
-	}
-	
-	
-	public void deleteSubject(){
 		
 	}
 
@@ -167,21 +149,6 @@ public class Subject extends EntityBase{
 	}
 
 	/**
-	 * @return the idPromo
-	 */
-	public int getIdPromo() {
-		return idPromo;
-	}
-
-
-	/**
-	 * @param idPromo the idPromo to set
-	 */
-	public void setIdPromo(Integer idPromo) {
-		this.idPromo = idPromo;
-	}
-
-	/**
 	 * @return the specialty
 	 */
 	public String getSpecialty() {
@@ -195,19 +162,18 @@ public class Subject extends EntityBase{
 		this.specialty = specialty;
 	}
 
-	public void downloadHomework() {
-		// TODO Auto-generated method stub
-	//	task = new task 
+	/**
+	 * @return the grade
+	 */
+	public Grade getGrade() {
+		return grade;
 	}
 
-
-	
-	
-	
-	
-	
-	
-	
-	
+	/**
+	 * @param grade the grade to set
+	 */
+	public void setGrade(Grade grade) {
+		this.grade = grade;
+	}
 
 }
