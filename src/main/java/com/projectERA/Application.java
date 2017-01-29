@@ -1,5 +1,8 @@
 package com.projectERA;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,8 +23,10 @@ import com.projectERA.dao.interfaces.IHomeworkDao;
 import com.projectERA.dao.interfaces.IStudentDao;
 import com.projectERA.dao.interfaces.ISubjectDao;
 import com.projectERA.dao.interfaces.ITeacherDao;
+import com.projectERA.model.Teacher;
 import com.projectERA.storage.StorageProperties;
 import com.projectERA.storage.StorageService;
+import com.projectERA.utils.JsonManager;
 
 
 
@@ -29,6 +34,11 @@ import com.projectERA.storage.StorageService;
 @EnableConfigurationProperties(StorageProperties.class)
 public class Application implements CommandLineRunner {
 
+	private static List<Teacher> teachers=JsonManager.getInstance().readJsonFile("./src/main/resources/static/json/", "dumpTeachers.json", Teacher.class);
+	
+	@Autowired
+	private ITeacherDao teacherDao;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
@@ -39,6 +49,10 @@ public class Application implements CommandLineRunner {
 		user.setFirstName("Administrator");
 
 		this.repository.save(user);*/
+		for (Teacher teacher : teachers) {
+			teacherDao.create(teacher);
+		}
+		
 	}
 	
 	@Bean

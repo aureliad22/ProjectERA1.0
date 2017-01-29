@@ -13,23 +13,23 @@ public abstract class User extends EntityBase {
 
 	// The entity fields (private)
 
-	@Column(name="email", nullable=false)
+	@Column(name = "email", nullable = false)
 	private String email;
 
-	@Column(name="firstname", nullable=false)
+	@Column(name = "firstname", nullable = false)
 	private String firstName;
-	
-	@Column(name="lastname", nullable=false)
+
+	@Column(name = "lastname", nullable = false)
 	private String lastName;
-	
-	@Column(name="password", nullable=false)
+
+	@Column(name = "password", nullable = false)
 	private String password;
-	
-	@Column(name="category", nullable=false)
+
+	@Column(name = "category", nullable = false)
 	private int category;
-	
+
 	@Transient
-    private String ldapGUID;
+	private String ldapGUID;
 
 	// Public methods
 
@@ -40,11 +40,10 @@ public abstract class User extends EntityBase {
 		super(id);
 	}
 
-	public User(String email, String password){
+	public User(String email, String password) {
 		this.email = email;
 		this.password = password;
 	}
-	
 
 	public User(String email, String firstName, String lastName) {
 		this.email = email;
@@ -67,7 +66,9 @@ public abstract class User extends EntityBase {
 		this.category = category;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -121,20 +122,20 @@ public abstract class User extends EntityBase {
 		this.lastName = lastName;
 	}
 
-	/**
+	 /**
 	 * @return the password
 	 */
-	public String getPassword() {
-		return password;
-	}
-
-	/**
+	 public String getPassword() {
+	 return password;
+	 }
+	
+	 /**
 	 * @param password
-	 *            the password to set
+	 * the password to set
 	 */
-	public void setPassword(String password) {
-		this.password = password;
-	}
+	 public void setPassword(String password) {
+	 this.password = password;
+	 }
 
 	/**
 	 * @return the categoryId
@@ -144,7 +145,8 @@ public abstract class User extends EntityBase {
 	}
 
 	/**
-	 * @param categoryId the categoryId to set
+	 * @param categoryId
+	 *            the categoryId to set
 	 */
 	public void setCategory(int category) {
 		this.category = category;
@@ -158,7 +160,8 @@ public abstract class User extends EntityBase {
 	}
 
 	/**
-	 * @param ldapGUID the ldapGUID to set
+	 * @param ldapGUID
+	 *            the ldapGUID to set
 	 */
 	public void setLdapGUID(String ldapGUID) {
 		this.ldapGUID = ldapGUID;
