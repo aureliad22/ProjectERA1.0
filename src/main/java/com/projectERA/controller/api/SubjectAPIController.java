@@ -22,6 +22,7 @@ import com.projectERA.model.Subject;
 import com.projectERA.model.Teacher;
 
 @Controller
+@RequestMapping("/api/subjects")
 public class SubjectAPIController {
 	
 	/**
@@ -33,7 +34,7 @@ public class SubjectAPIController {
 	/**
 	 * Create a subject with the title/deadline/groupSize/secription/idPromo/specialty/authorList as passed values.
 	 */
-	@RequestMapping(value = "/subjects/create")
+	@RequestMapping(value = "/create")
 	@ResponseBody
 	public String create(Integer id, String title, Date deadline, Integer groupSize, String description,
 			Grade grade, String specialty, Teacher author) {
@@ -49,7 +50,7 @@ public class SubjectAPIController {
 	/**
 	 * Delete the identified subject.
 	 */
-	@RequestMapping(value = "/subjects/delete")
+	@RequestMapping(value = "/delete")
 	@ResponseBody
 	public String delete(Integer id) {
 		try {
@@ -64,7 +65,7 @@ public class SubjectAPIController {
 	/**
 	 * Update the parameters for the identified subject.
 	 */
-	@RequestMapping(value = "/subjects/update")
+	@RequestMapping(value = "/update")
 	@ResponseBody
 	public String update(Integer id, String title, Date deadline, Integer groupSize, String description,
 			Grade grade, String specialty) {

@@ -9,6 +9,7 @@ import com.projectERA.dao.interfaces.IAdministratorDao;
 import com.projectERA.model.Administrator;
 
 @Controller
+@RequestMapping("/api/administrator")
 public class AdministratorAPIController {
 	
 	/**
@@ -22,7 +23,7 @@ public class AdministratorAPIController {
 	 * values.
 	 */
 	
-	@RequestMapping(value = "/administrators/create")
+	@RequestMapping(value = "/create")
 	@ResponseBody
 	public String create(String firstname, String lastname, String email) {
 		try {
@@ -38,7 +39,7 @@ public class AdministratorAPIController {
 	 * Delete the identified administrator.
 	 */
 	
-	@RequestMapping(value = "/administrators/delete")
+	@RequestMapping(value = "/delete")
 	@ResponseBody
 	public String delete(Integer id) {
 		try {
@@ -53,7 +54,7 @@ public class AdministratorAPIController {
 	/**
 	 * Update the email and names for the identified administrator.
 	 */
-	@RequestMapping(value = "/administrators/update")
+	@RequestMapping(value = "/update")
 	@ResponseBody
 	public String updateName(Integer id, String firstname, String lastname, String email) {
 		try {

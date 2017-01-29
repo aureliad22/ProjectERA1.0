@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +24,7 @@ import com.projectERA.storage.StorageService;
 
 @Controller
 public class FileUploadController {
+	
     private final StorageService storageService;
 
     @Autowired 
@@ -57,7 +57,7 @@ public class FileUploadController {
                 .body(file);
     }
 
-    @PostMapping("/")
+    @PostMapping("/upload")
     public String handleFileUpload(@RequestParam("file") MultipartFile file,
                                    RedirectAttributes redirectAttributes) {
 

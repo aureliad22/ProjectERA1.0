@@ -8,6 +8,7 @@ import com.projectERA.dao.interfaces.IHomeworkDao;
 import com.projectERA.model.Homework;
 
 @Controller
+@RequestMapping("/api/homework")
 public class HomeworkAPIController {
 	
 	/**
@@ -18,7 +19,7 @@ public class HomeworkAPIController {
 	/**
 	 * Create a homework with the title/document as passed values.
 	 */
-	@RequestMapping(value = "/homeworks/create")
+	@RequestMapping(value = "/create")
 	@ResponseBody
 	public String create(Integer id, String title, String document) {
 		try {
@@ -45,7 +46,7 @@ public class HomeworkAPIController {
 //		return "Homework succesfully deleted!";
 //	}
 
-	@RequestMapping(value = "/homeworks/update")
+	@RequestMapping(value = "/update")
 	@ResponseBody
 	public String updateName(Integer id, String title, String document) {
 		try {

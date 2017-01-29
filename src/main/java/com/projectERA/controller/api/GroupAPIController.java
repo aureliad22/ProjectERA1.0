@@ -11,6 +11,7 @@ import com.projectERA.model.Group;
 
 
 @Controller
+@RequestMapping("/api/groups")
 public class GroupAPIController {
 	
 	/**
@@ -22,7 +23,7 @@ public class GroupAPIController {
 	/**
 	 * Delete the identified group.
 	 */
-	@RequestMapping(value = "/groups/create")
+	@RequestMapping(value = "/create")
 	@ResponseBody
 	public String create(Integer id) {
 		try {
@@ -37,7 +38,7 @@ public class GroupAPIController {
 	/**
 	 * Delete the identified group.
 	 */
-	@RequestMapping(value = "/groups/delete")
+	@RequestMapping(value = "/delete")
 	@ResponseBody
 	public String delete(Integer id) {
 		try {

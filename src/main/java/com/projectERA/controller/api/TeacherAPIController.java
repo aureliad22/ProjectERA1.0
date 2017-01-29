@@ -12,6 +12,7 @@ import com.projectERA.dao.interfaces.ITeacherDao;
 import com.projectERA.model.Teacher;
 
 @Controller
+@RequestMapping("/api/teachers")
 public class TeacherAPIController {
 
 	/**
@@ -24,7 +25,7 @@ public class TeacherAPIController {
 	 * Create a new Teacher with an auto-generated id, and email/lastname/firstname as passed
 	 * values.
 	 */
-	@RequestMapping(value = "/teachers/create")
+	@RequestMapping(value = "/create")
 	@ResponseBody
 	public String create(String firstname, String lastname, String email) {
 		try {
@@ -39,7 +40,7 @@ public class TeacherAPIController {
 	/**
 	 * Delete the identified teacher.
 	 */
-	@RequestMapping(value = "/teachers/delete")
+	@RequestMapping(value = "/delete")
 	@ResponseBody
 	public String delete(Integer id) {
 		try {
@@ -56,7 +57,7 @@ public class TeacherAPIController {
 	* List All Teachers.
 	*/
 	@CrossOrigin(origins="localhost:4200")
-	@RequestMapping(value = "/teachers/getall")
+	@RequestMapping(value = "/getall")
 	@ResponseBody
 	public List<Teacher> getAll() {
 		List<Teacher> teachers= teacherDao.getAll();
@@ -66,7 +67,7 @@ public class TeacherAPIController {
 	/**
 	 * Update the email and names for the identified teacher.
 	 */
-	@RequestMapping(value = "/teachers/update")
+	@RequestMapping(value = "/update")
 	@ResponseBody
 	public String updateName(Integer id, String firstname, String lastname, String email) {
 		try {

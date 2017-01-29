@@ -9,6 +9,7 @@ import com.projectERA.dao.interfaces.IStudentDao;
 import com.projectERA.model.Student;
 
 @Controller
+@RequestMapping("/api/students")
 public class StudentAPIController {
 
 	/**
@@ -21,7 +22,7 @@ public class StudentAPIController {
 	 * Create a new Student with an auto-generated id and email/lastname/firstname as passed
 	 * values.
 	 */
-	@RequestMapping(value = "/students/create")
+	@RequestMapping(value = "/create")
 	@ResponseBody
 	public String create(String firstname, String lastname, String email) {
 		try {
@@ -36,7 +37,7 @@ public class StudentAPIController {
 	/**
 	 * Delete the identified student.
 	 */
-	@RequestMapping(value = "/students/delete")
+	@RequestMapping(value = "/delete")
 	@ResponseBody
 	public String delete(Integer id) {
 		try {
@@ -51,7 +52,7 @@ public class StudentAPIController {
 	/**
 	 * Update the email and names for the identified student.
 	 */
-	@RequestMapping(value = "/students/update")
+	@RequestMapping(value = "/update")
 	@ResponseBody
 	public String updateName(Integer id, String firstname, String lastname, String email) {
 		try {
