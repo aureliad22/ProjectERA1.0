@@ -23,6 +23,7 @@ import com.projectERA.dao.interfaces.IHomeworkDao;
 import com.projectERA.dao.interfaces.IStudentDao;
 import com.projectERA.dao.interfaces.ISubjectDao;
 import com.projectERA.dao.interfaces.ITeacherDao;
+import com.projectERA.model.Grade;
 import com.projectERA.model.Teacher;
 import com.projectERA.storage.StorageProperties;
 import com.projectERA.storage.StorageService;
@@ -35,9 +36,14 @@ import com.projectERA.utils.JsonManager;
 public class Application implements CommandLineRunner {
 
 	private static List<Teacher> teachers=JsonManager.getInstance().readJsonFile("./src/main/resources/static/json/", "dumpTeachers.json", Teacher.class);
+	private static List<Grade> grades=JsonManager.getInstance().readJsonFile("./src/main/resources/static/json/", "dumpGrades.json", Grade.class);
+
 	
 	@Autowired
 	private ITeacherDao teacherDao;
+	
+	@Autowired
+	private IGradeDao gradeDao;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
@@ -53,6 +59,9 @@ public class Application implements CommandLineRunner {
 			teacherDao.create(teacher);
 		}
 		
+		for (Grade grade : grades) {
+			gradeDao.create(grade);
+		}
 	}
 	
 	@Bean
