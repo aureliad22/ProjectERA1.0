@@ -24,6 +24,7 @@ import com.projectERA.dao.interfaces.IStudentDao;
 import com.projectERA.dao.interfaces.ISubjectDao;
 import com.projectERA.dao.interfaces.ITeacherDao;
 import com.projectERA.model.Grade;
+import com.projectERA.model.Student;
 import com.projectERA.model.Teacher;
 import com.projectERA.storage.StorageProperties;
 import com.projectERA.storage.StorageService;
@@ -37,13 +38,16 @@ public class Application implements CommandLineRunner {
 
 	private static List<Teacher> teachers=JsonManager.getInstance().readJsonFile("./src/main/resources/static/json/", "dumpTeachers.json", Teacher.class);
 	private static List<Grade> grades=JsonManager.getInstance().readJsonFile("./src/main/resources/static/json/", "dumpGrades.json", Grade.class);
+	private static List<Student> students=JsonManager.getInstance().readJsonFile("./src/main/resources/static/json/", "dumpStudents.json", Student.class);
 
-	
 	@Autowired
 	private ITeacherDao teacherDao;
 	
 	@Autowired
 	private IGradeDao gradeDao;
+	
+	@Autowired
+	private IStudentDao studentDao;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
@@ -62,6 +66,10 @@ public class Application implements CommandLineRunner {
 		for (Grade grade : grades) {
 			gradeDao.create(grade);
 		}
+		
+		for (Student student : students) {
+			studentDao.create(student);
+		}
 	}
 	
 	@Bean
@@ -76,86 +84,35 @@ public class Application implements CommandLineRunner {
 	public ITeacherDao getTeacherDao() {
 		return new TeacherDao();
 	}
-	
-//	@Bean
-//	public ITeacherManager getTeacherManager() {
-//		return new TeacherManager();
-//	}
 
 	@Bean
 	public IStudentDao getStudentDao() {
 		return new StudentDao();
 	}
 
-//	@Bean
-//	public IStudentManager getStudentManager() {
-//		return new StudentManager();
-//	}
-
 	@Bean
 	public IGradeDao getGradeDao() {
 		return new GradeDao();
 	}
 	
-//	@Bean
-//	public IGradeManager getGradeManager() {
-//		return new GradeManager();
-//	}
-	
-//	@Bean
-//	public IAdministratorManager getAdministratorManager(){
-//		return new AdministratorManager();
-//	}
-	
 	@Bean
 	public IAdministratorDao getAdministratorDao(){
 		return new AdministratorDao();
 	}
-	
-//	@Bean
-//	public IHomeworkManager getHomeworkManager() {
-//		return new HomeworkManager();
-//	}
 
 	@Bean
 	public IHomeworkDao getHomeworkDao() {
 		return new HomeworkDao();
 	}
 	
-//	@Bean
-//	public IGroupManager getGroupManager(){
-//		return new GroupManager();
-//	}
-	
 	@Bean
 	public IGroupDao getGroupDao(){
 		return new GroupDao();
 	}
 	
-//	@Bean
-//	public ISubjectManager getSubjectManager(){
-//		return new SubjectManager();
-//	}
-	
 	@Bean
 	public ISubjectDao getSubjectDao(){
 		return new SubjectDao();
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 }
