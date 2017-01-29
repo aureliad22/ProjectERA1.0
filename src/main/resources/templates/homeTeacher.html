@@ -9,7 +9,7 @@
     <meta name="author" content="" />
     <link rel="icon" href="../../favicon.ico" />
 
-    <title>Connexion en tant qu'enseignant</title>
+    <title>Espace enseignant</title>
 
 <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
@@ -26,32 +26,12 @@
 
 </head>
 
+
 <body>
 
-	<div class="container">
-		<div th:if="${fail}" class="alert alert-danger" role="alert">
-			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-			<span class="sr-only">Error:</span> Erreur d'identifiant ou de mot de passe !!!
-		</div>
+<h1> Bonjour Monsieur Vincent!!</h1>
 		
-		 <form method="POST" action="/teachers/checkLogin">
-            <h2 align="center" class="form-signin-heading">Enregistrez-vous</h2>
-            <label for="login" class="sr-only">email</label> 
-            <input type="text" name="login" id="inputLogin" class="form-control" placeholder="Identifiant" />
-            
-             
-            <label for="password" class="sr-only">password</label> 
-            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" />
-
-            <br/>
-            
-            <button id="button" class="btn btn-default btn-primary btn-block" type="submit">
-                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                Connexion
-            </button>
-          </form>
-
-	</div>
+</div>
 
 	<!-- Bootstrap core JavaScript
     ================================================== -->
@@ -63,4 +43,4 @@
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="js/ie10-viewport-bug-workaround.js"></script>
 </body>
-</html>
+</html>		
