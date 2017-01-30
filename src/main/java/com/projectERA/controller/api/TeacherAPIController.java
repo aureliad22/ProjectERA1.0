@@ -51,6 +51,18 @@ public class TeacherAPIController {
 		return "Teacher succesfully deleted!";
 	}
 
+
+	/**
+	* List All Teachers.
+	*/
+	@CrossOrigin(origins="localhost:4200")
+	@RequestMapping(value = "/teachers/getall")
+	@ResponseBody
+	public List<Teacher> getAll() {
+		List<Teacher> teachers= teacherDao.getAll();
+		return teachers;
+	}
+	
 	/**
 	 * Update the email and names for the identified teacher.
 	 */

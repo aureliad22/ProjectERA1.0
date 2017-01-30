@@ -30,20 +30,20 @@ public class HomeworkAPIController {
 		return "Homework succesfully created!";
 	}
 
-	/**
-	 * Delete the identified homework.
-	 */
-	@RequestMapping(value = "/homeworks/delete")
-	@ResponseBody
-	public String delete(Integer id) {
-		try {
-			Homework homework = new Homework(id);
-			homeworkDao.delete(homework);
-		} catch (Exception ex) {
-			return "Error deleting the homework: " + ex.toString();
-		}
-		return "Homework succesfully deleted!";
-	}
+//	/**
+//	 * Delete the identified homework.
+//	 */
+//	@RequestMapping(value = "/homeworks/delete")
+//	@ResponseBody
+//	public String delete(Integer id) {
+//		try {
+//			Homework homework = new Homework(id);
+//			homeworkDao.delete(homework);
+//		} catch (Exception ex) {
+//			return "Error deleting the homework: " + ex.toString();
+//		}
+//		return "Homework succesfully deleted!";
+//	}
 
 	@RequestMapping(value = "/homeworks/update")
 	@ResponseBody

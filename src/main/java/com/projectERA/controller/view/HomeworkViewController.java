@@ -1,5 +1,4 @@
 package com.projectERA.controller.view;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,9 +13,10 @@ import com.projectERA.model.Homework;
 
 @Controller
 public class HomeworkViewController {
-	@Autowired
-	private IHomeworkDao homeworkDao;
-	
+
+    @Autowired
+    private IHomeworkDao homeworkDao;
+   
 	@GetMapping("/homeworks/create")
 	public String homeworkCreate(Model model){
 	
@@ -29,7 +29,7 @@ public class HomeworkViewController {
 		
 		return "teacher_deposit";
 	}
-
-
-
 }
+
+
+

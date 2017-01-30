@@ -8,4 +8,6 @@ import com.projectERA.model.Teacher;
 @Repository
 public interface ITeacherDao extends IBaseDao<Teacher>{
 
+	Teacher getByEmail(String email);
+
 }

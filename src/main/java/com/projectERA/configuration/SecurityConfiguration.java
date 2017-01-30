@@ -17,7 +17,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		httpSecurity
 		.anonymous().and()
 		.authorizeRequests()
-		.antMatchers("/", "/teachers/**", "/students/**", "/grades/**" , "/homeworks/**", "/groups/**", "/grades/**", "/administrators/**", "/subjects/**", "/home/**" , "/subject/create").permitAll()
+
+		.antMatchers("/", "/teachers/**", "/students/**", "/grades/**" , "/homeworks/**", "/groups/**", "/grades/**", "/administrators/**", "/subjects/**", "/home/**", "/archives/**", "/api/**" ).permitAll()
+
 		.anyRequest().authenticated();
 	}
 	

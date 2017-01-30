@@ -1,12 +1,11 @@
 package com.projectERA.model;
 
-import java.time.Year;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.projectERA.model.base.EntityBase;
 
 @Entity
@@ -14,10 +13,10 @@ import com.projectERA.model.base.EntityBase;
 @Inheritance
 public class Grade extends EntityBase {
 	
-	@NotNull
+	@Column
 	private String name;
 	
-	@NotNull
+	@Column
 	private String year;
 	
 	
@@ -28,10 +27,11 @@ public class Grade extends EntityBase {
 		super(id);
 	}
 
-	public Grade(String name, String year) {
-		this.name = name;
-		this.year = year;
+	public Grade(@JsonProperty("name") String name, @JsonProperty("year") String year) {
+		this.setName(name);
+		this.setYear(year);
 	}
+	
 	/**
 	 * @param idPromo
 	 * @param name

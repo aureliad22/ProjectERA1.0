@@ -3,23 +3,29 @@ package com.projectERA.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name="students")
 @Inheritance
 public class Student extends User{
 
+	//many students in 1 grade.
 	@ManyToOne
 	private Grade grade;
 	
+	//many students in 1 group.
 	@ManyToOne
 	private Group group;
 	
+	//1 student has many homework.
 	@OneToMany
 	private List<Homework>homework;
 	
@@ -60,6 +66,41 @@ public class Student extends User{
 		this.homework = new ArrayList<Homework>();
 	}
 
+	/**
+	 * @param email
+	 * @param login
+	 * @param firstName
+	 * @param lastName
+	 * @param subjects
+	 */
+	public Student(
+			@JsonProperty("email") 
+			String email, 
+			@JsonProperty("firstName") 
+			String firstName, 
+			@JsonProperty("lastName") 
+			String lastName, 
+			@JsonProperty("password") 
+			String password, 
+			@JsonProperty("category") 
+			int category, 
+			@JsonProperty("ldapGUID") 
+			String ldapGUID,
+			@JsonProperty("grade")
+			Grade grade,
+			@JsonProperty("group")
+			Group group) {
+		this.setEmail(email);
+		this.setFirstName(firstName);
+		this.setLastName(lastName);		
+		this.setPassword(password);
+		this.setCategory(category);
+		this.setLdapGUID(ldapGUID);
+		this.setGrade(grade);
+		this.setGroup(group);
+		this.homework= new ArrayList<Homework>();
+	}
+	
 	/**
 	 * @return the grade
 	 */
