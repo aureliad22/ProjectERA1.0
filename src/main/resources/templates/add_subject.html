@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Teacher: Mes sujets</title>
+ <link href="../static/css/subject_consult.css" rel="stylesheet" />
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Teacher: ajouter un sujet</h1>
+<label> Titre</label>
+<input type="text" name=" titre"/></br>
+<label> Promotion</label>
+<input type="text" name="promotion"/></br>
+<label> spécialité</label>
+<input list="spécialité" type="text" id="choix_spécialité"/>
+<datalist id="spécialité">
+  <option value="Informatique">
+  <option value="Biologie">
+  <option value="Mathématique">
+  <option value="Statistiques">
+</datalist></br>
+<label> Date de creation</label>
+<input type="date" data-date-inline-picker="true" /></br>
+
+<label> Déscription</label>
+    <FORM>
+    <TEXTAREA name="nom" rows=4 cols=40>Rédaction du cahier des charges</TEXTAREA>
+    </FORM>
+
+<label> URL</label>
+<input type="url" name="URL"/></br>
+<label> Taille de groupe</label>
+<input type="number" name=" taille de groupe"/>
+
+ <form method="Get" action="teacher_subject.html">
+<input id="button8" type="submit" name="Annuler" value="Annuler" />
+</form>
+
+ <form method="Get" action="teacher_subject.html">
+<input id="button9" type="submit" name="Valider" value="Valider" />
+</form>
+</body>
+</html>

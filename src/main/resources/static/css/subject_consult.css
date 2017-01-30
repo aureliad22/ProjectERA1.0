@@ -2,6 +2,22 @@ body{
 	
 	background-color:menu;
 }
+table{
+	border-collapse: collapse;
+	margin: auto;
+}
+td{
+   border: 2px solid black;
+}
+th{
+	color:purple;
+}
+
+table{
+	border-collapse: collapse;
+	margin: auto;
+}
+
 h1{
 	color:highlight;
 	text-decoration: underline;
@@ -27,6 +43,40 @@ left: 500px;
 bottom: 250px;
 }
 
+#button5{
+position: absolute;
+right: 850px;
+bottom: 417px;
+}
 
+#button6{border:none;
+	padding:0.2px 0 0.2px 0;
+	border-radius:8px;
+	background:green;
+	font:bold 10.5px Arial;
+	color:#fff;
 	
+}
+#button7{border:none;
+	padding:0.2px 0 0.2px 0;
+	border-radius:8px;
+	background:red;
+	font:bold 10.5px Arial;
+	color:#fff;
+	
+}
+#button8{
+	position: absolute;
+right: 500px;
+bottom: 300px;
+}
+
+#button9{
+	position: absolute;
+right: 380px;
+bottom: 300px;
+	
+}
+	
+
 	
