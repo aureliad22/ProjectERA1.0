@@ -10,4 +10,6 @@ public interface IStudentDao extends IBaseDao<Student>{
 
 	Student getByEmail(String email);
 
+	Student getByLogin(String login);
+
 }

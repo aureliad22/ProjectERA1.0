@@ -31,15 +31,15 @@ public class LoginStudentViewController {
 
 	@RequestMapping(method = RequestMethod.POST, path = "/students/checkLogin")
 	public String checkLogin(
-			@RequestParam(value = "email", required = false) 
-			String email,
+			@RequestParam(value = "login", required = false) 
+			String login,
 			@RequestParam(value = "password", required = false) 
 			String password, 
 			Model model) {
-		Student student = this.studentDao.getByEmail(email);
+		Student student = this.studentDao.getByLogin(login);
 
 		if (student != null && student.getPassword().equals(password)) {
-			model.addAttribute("email", email);
+			model.addAttribute("login", login);
 			return "homeStudent";
 
 		}
