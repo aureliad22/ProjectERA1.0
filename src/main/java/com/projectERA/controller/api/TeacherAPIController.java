@@ -80,7 +80,9 @@ public class TeacherAPIController {
 			return "Error updating the teacher: " + ex.toString();
 		}
 		return "Teacher succesfully updated!";
-	}
+		
+ }
+	
 
 //	  /**
 //	   * Retrieve the id for the user with the passed email address.

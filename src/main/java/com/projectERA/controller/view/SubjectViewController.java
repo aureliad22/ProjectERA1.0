@@ -20,18 +20,31 @@ import com.projectERA.model.Subject;
 		
 		@GetMapping("/subjects/create")
 		public String subjectCreate(Model model){
-			model.addAttribute("attributs",DumpFields.<Subject>inspect(Subject.class));
-			return "";
+			
+			return "subject_view";
 		}
 		
-		@PostMapping("/subjects/create")
-		public String itemTestRetreiver(@ModelAttribute Subject subject){
-			System.out.println(subject);
-			subjectDao.create(subject);
 
-			String redirectUrl = "/";
-		    return "redirect:" + redirectUrl;
+		@GetMapping("/subjects/consult")
+		public String subjectConsult(Model model){
+			
+			return "subject_consult";
+	}
+
+		
+		@GetMapping("/subjects/add")
+		public String subjectadd(Model model){
+			
+			return "add_subject";
 		}
+
+		@GetMapping("/subjects/teacherView")
+		public String subjectTeacher(Model model){
+			
+			return "teacher_subject";
+		}
+		
+	
 
 
 }
