@@ -1,5 +1,7 @@
 package com.projectERA.controller.view;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,10 @@ public class LoginTeacherViewController {
 	public LoginTeacherViewController(ITeacherDao teacherDao) {
 		this.teacherDao = teacherDao;
 	}
+	
+	@Autowired
+    private HttpSession httpSession;
+
 
 @RequestMapping(method= RequestMethod.GET, path = "/teachers/login")
 public String login(Model model) {
@@ -34,6 +40,8 @@ public String login(Model model) {
 
 @RequestMapping(method= RequestMethod.GET, path = "/teachers/home")
 public String loginTeacher(Model model) {
+	Teacher author = (Teacher) httpSession.getAttribute("authorSession");
+	model.addAttribute("author", author);
 	return "homeTeacher";
 }
 
