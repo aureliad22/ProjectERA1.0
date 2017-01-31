@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Inheritance
 public class Teacher extends User {
 
-	//1 teacher has many subjects.
+//	1 teacher has many subjects.
 	@OneToMany
 	private List<Subject> subjects;
 	
@@ -63,41 +63,42 @@ public class Teacher extends User {
 	 * @param lastName
 	 * @param subjects
 	 */
-	public Teacher(String email, String firstName, String lastName, int category) {
-		super(email, firstName, lastName);
+	public Teacher(String email, String firstName, String lastName, String ldapGUID) {
+		super(email, firstName, lastName, ldapGUID);
 		this.setPassword("t34ch3r");
 		this.setCategory(1);
 		this.subjects = new ArrayList<Subject>();;
 	}
 
-	/**
-	 * @param email
-	 * @param login
-	 * @param firstName
-	 * @param lastName
-	 * @param subjects
-	 */
-	public Teacher(
-			@JsonProperty("email") 
-			String email, 
-			@JsonProperty("firstName") 
-			String firstName, 
-			@JsonProperty("lastName") 
-			String lastName, 
-			@JsonProperty("password") 
-			String password, 
-			@JsonProperty("category") 
-			int category, 
-			@JsonProperty("ldapGUID") 
-			String ldapGUID) {
-		this.setEmail(email);
-		this.setFirstName(firstName);
-		this.setLastName(lastName);		
-		this.setPassword(password);
-		this.setCategory(category);
-		this.setLdapGUID(ldapGUID);
-		this.subjects= new ArrayList<Subject>();
-	}
+//	/**
+//	 * @param email
+//	 * @param login
+//	 * @param firstName
+//	 * @param lastName
+//	 * @param subjects
+//	 */
+//	public Teacher(
+//			@JsonProperty("email") 
+//			String email, 
+//			@JsonProperty("firstName") 
+//			String firstName, 
+//			@JsonProperty("lastName") 
+//			String lastName, 
+//			@JsonProperty("password") 
+//			String password, 
+//			@JsonProperty("category") 
+//			int category,
+//			@JsonProperty("ldapGUID") 
+//			String ldapGUID
+//			) {
+//		this.setEmail(email);
+//		this.setFirstName(firstName);
+//		this.setLastName(lastName);		
+//		this.setPassword(password);
+//		this.setCategory(category);
+//		this.setLdapGUID(ldapGUID);
+//		this.subjects= new ArrayList<Subject>();
+//	}
 	
 	/**
 	 * @return the subjects

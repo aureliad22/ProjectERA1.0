@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.projectERA.dao.interfaces.ITeacherDao;
@@ -27,9 +27,9 @@ public class TeacherAPIController {
 	 */
 	@RequestMapping(value = "/create")
 	@ResponseBody
-	public String create(String firstname, String lastname, String email) {
+	public String create(String email, String firstName, String lastName, String ldapGUID) {
 		try {
-			Teacher teacher = new Teacher(firstname, lastname, email);
+			Teacher teacher = new Teacher(email, firstName, lastName, ldapGUID);
 			teacherDao.create(teacher);
 		} catch (Exception ex) {
 			return "Error creating the teacher: " + ex.toString();
@@ -56,8 +56,8 @@ public class TeacherAPIController {
 	/**
 	* List All Teachers.
 	*/
-	@CrossOrigin(origins="localhost:4200")
-	@RequestMapping(value = "/getall")
+//	@CrossOrigin(origins="localhost:4200")
+	@RequestMapping(value = "/getAll")
 	@ResponseBody
 	public List<Teacher> getAll() {
 		List<Teacher> teachers= teacherDao.getAll();
@@ -65,16 +65,28 @@ public class TeacherAPIController {
 	}
 	
 	/**
+	* List All Teachers.
+	*/
+//	@CrossOrigin(origins="localhost:4200")
+	@RequestMapping(value = "/getById")
+	@ResponseBody
+	public Teacher getById(Integer id) {
+		Teacher teacher = teacherDao.getById(id);
+		return teacher;
+	}
+	
+	/**
 	 * Update the email and names for the identified teacher.
 	 */
-	@RequestMapping(value = "/update")
+//	@CrossOrigin(origins="localhost:4200")
+	@RequestMapping(method=RequestMethod.PUT, value = "/update")
 	@ResponseBody
-	public String updateName(Integer id, String firstname, String lastname, String email) {
+	public String update(Integer id, String email, String firstName, String lastName) {
 		try {
 			Teacher teacher = teacherDao.getById(id);
 			teacher.setEmail(email);
-			teacher.setFirstName(firstname);
-			teacher.setLastName(lastname);
+			teacher.setFirstName(firstName);
+			teacher.setLastName(lastName);
 			teacherDao.update(teacher);
 		} catch (Exception ex) {
 			return "Error updating the teacher: " + ex.toString();

@@ -13,22 +13,22 @@ public abstract class User extends EntityBase {
 
 	// The entity fields (private)
 
-	@Column(name = "email", nullable = false)
+	@Column(name = "email")
 	private String email;
 
-	@Column(name = "firstname", nullable = false)
+	@Column(name = "firstName")
 	private String firstName;
 
-	@Column(name = "lastname", nullable = false)
+	@Column(name = "lastName")
 	private String lastName;
 
-	@Column(name = "password", nullable = false)
+	@Column(name = "password")
 	private String password;
 
-	@Column(name = "category", nullable = false)
+	@Column(name = "category")
 	private int category;
 
-	@Transient
+	@Column(name = "ldapGUID")
 	private String ldapGUID;
 
 	// Public methods
@@ -51,6 +51,12 @@ public abstract class User extends EntityBase {
 		this.lastName = lastName;
 	}
 
+	public User(String email, String firstName, String lastName, String ldapGUID) {
+		this.email = email;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.ldapGUID = ldapGUID;
+	}
 	/**
 	 * @param email
 	 * @param login
@@ -74,7 +80,9 @@ public abstract class User extends EntityBase {
 	@Override
 	public String toString() {
 		return "User [" + super.toString() + "email=" + email + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", password=" + password + ", ldapGUID=" + ldapGUID + "]";
+				+ ", password=" + password 
+				+ ", ldapGUID=" + ldapGUID 
+				+ "]";
 	}
 
 	/**
