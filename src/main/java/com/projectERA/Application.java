@@ -43,9 +43,9 @@ public class Application implements CommandLineRunner {
 //	@Autowired
 //	private ITeacherDao teacherDao;
 //	
-	@Autowired
-	private IGradeDao gradeDao;
-//	
+//	@Autowired
+//	private IGradeDao gradeDao;
+
 //	@Autowired
 //	private IStudentDao studentDao;
 	
@@ -63,10 +63,10 @@ public class Application implements CommandLineRunner {
 //			teacherDao.create(teacher);
 //		}
 //		
-		for (Grade grade : grades) {
-			gradeDao.create(grade);
-		}
-//		
+//		for (Grade grade : grades) {
+//			gradeDao.create(grade);
+//		}
+		
 //		for (Student student : students) {
 //			studentDao.create(student);
 //		}

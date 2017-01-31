@@ -59,47 +59,47 @@ public class Student extends User{
 	 * @param group
 	 * @param homework
 	 */
-	public Student(String email, String firstName, String lastName, String password, int category) {
-		super(email, firstName, lastName);	
-		this.setPassword("5tud3nt");
+	public Student(String email, String firstName, String lastName, String ldapGUID) {
+		super(email, firstName, lastName, ldapGUID);
+		this.setPassword("stud3nt");
 		this.setCategory(2);
 		this.homework = new ArrayList<Homework>();
 	}
-
-	/**
-	 * @param email
-	 * @param login
-	 * @param firstName
-	 * @param lastName
-	 * @param subjects
-	 */
-	public Student(
-			@JsonProperty("email") 
-			String email, 
-			@JsonProperty("firstName") 
-			String firstName, 
-			@JsonProperty("lastName") 
-			String lastName, 
-			@JsonProperty("password") 
-			String password, 
-			@JsonProperty("category") 
-			int category, 
-			@JsonProperty("ldapGUID") 
-			String ldapGUID,
-			@JsonProperty("grade")
-			Grade grade,
-			@JsonProperty("group")
-			Group group) {
-		this.setEmail(email);
-		this.setFirstName(firstName);
-		this.setLastName(lastName);		
-		this.setPassword(password);
-		this.setCategory(category);
-		this.setLdapGUID(ldapGUID);
-		this.setGrade(grade);
-		this.setGroup(group);
-		this.homework= new ArrayList<Homework>();
-	}
+//
+//	/**
+//	 * @param email
+//	 * @param login
+//	 * @param firstName
+//	 * @param lastName
+//	 * @param subjects
+//	 */
+//	public Student(
+//			@JsonProperty("email") 
+//			String email, 
+//			@JsonProperty("firstName") 
+//			String firstName, 
+//			@JsonProperty("lastName") 
+//			String lastName, 
+//			@JsonProperty("password") 
+//			String password, 
+//			@JsonProperty("category") 
+//			int category, 
+//			@JsonProperty("ldapGUID") 
+//			String ldapGUID,
+//			@JsonProperty("grade")
+//			Grade grade,
+//			@JsonProperty("group")
+//			Group group) {
+//		this.setEmail(email);
+//		this.setFirstName(firstName);
+//		this.setLastName(lastName);		
+//		this.setPassword(password);
+//		this.setCategory(category);
+//		this.setLdapGUID(ldapGUID);
+//		this.setGrade(grade);
+//		this.setGroup(group);
+//		this.homework= new ArrayList<Homework>();
+//	}
 	
 	/**
 	 * @return the grade

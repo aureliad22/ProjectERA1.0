@@ -9,6 +9,7 @@ import com.projectERA.dao.interfaces.IGradeDao;
 import com.projectERA.model.Grade;
 
 @Controller
+@RequestMapping("/api/grades")
 public class GradeAPIController {
 
 	/**
@@ -21,7 +22,7 @@ public class GradeAPIController {
 	 * Create a new grade with an auto-generated id and name/year as passed
 	 * values.
 	 */
-	@RequestMapping(value = "/grades/create")
+	@RequestMapping(value = "/create")
 	@ResponseBody
 	public String create(String name, String year) {
 		try {
@@ -36,7 +37,7 @@ public class GradeAPIController {
 	/**
 	 * Delete the identified grade.
 	 */
-	@RequestMapping(value = "/grades/delete")
+	@RequestMapping(value = "/delete")
 	@ResponseBody
 	public String delete(Integer id) {
 		try {
@@ -51,7 +52,7 @@ public class GradeAPIController {
 	/**
 	 * Update the identified grade's name.
 	 */
-	@RequestMapping(value = "/grades/update")
+	@RequestMapping(value = "/update")
 	@ResponseBody
 	public String updateName(Integer id, String name, String year) {
 		try {
