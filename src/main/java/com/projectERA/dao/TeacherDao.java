@@ -34,6 +34,16 @@ public class TeacherDao extends BaseDao<Teacher> implements ITeacherDao {
 		return t;
 	}
 	
+	public Teacher getByLogin(String login) {
+		Teacher t = null;
+		List<Teacher> result= entityManager.createQuery("SELECT T FROM  Teacher T where T.login = :login", Teacher.class)
+                .setParameter("login", login).getResultList();
+		  if (!result.isEmpty()){
+			  t=result.get(0);
+		  }
+		  return t;
+	}
+	
 	public List getAll() {
 		return entityManager.createQuery("select T from Teacher T").getResultList();
 	}
