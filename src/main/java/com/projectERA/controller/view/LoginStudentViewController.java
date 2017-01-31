@@ -22,6 +22,12 @@ public class LoginStudentViewController {
 	public String login(Model model) {
 		return "loginStudent";
 	}
+	
+	@RequestMapping(method= RequestMethod.GET, path = "/students/home")
+	public String loginStudent(Model model) {
+		return "homeStudent";
+	}
+
 
 	@RequestMapping(method = RequestMethod.POST, path = "/students/checkLogin")
 	public String checkLogin(

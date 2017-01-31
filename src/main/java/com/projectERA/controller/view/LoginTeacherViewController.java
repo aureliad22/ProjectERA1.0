@@ -27,6 +27,16 @@ public String login(Model model) {
 	return "loginTeacher";
 }
 
+//@RequestMapping(method=RequestMethod.GET, path="/teachers/login")
+//public String loginEnseignant (Model model){
+//	return "loginTeacher";
+//}
+
+@RequestMapping(method= RequestMethod.GET, path = "/teachers/home")
+public String loginTeacher(Model model) {
+	return "homeTeacher";
+}
+
 @RequestMapping(method = RequestMethod.POST, path= "/teachers/checkLogin")
 public String checkLogin(
 		@RequestParam(value = "email", required = false)
@@ -45,6 +55,7 @@ public String checkLogin(
 			model.addAttribute("fail", true);
 			return "loginTeacher";
 }
+
 
 
 }
