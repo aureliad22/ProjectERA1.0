@@ -1,36 +1,93 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <link rel="icon" href="../../favicon.ico" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link rel="icon" href="../../favicon.ico" />
 
-    <title>Espace étudiant</title>
+<title>Espace étudiant</title>
 
 <!-- Bootstrap core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/css/bootstrap.min.css" rel="stylesheet" />
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="/css/ie10-viewport-bug-workaround.css" rel="stylesheet" />
+<link href="/css/ie10-viewport-bug-workaround.css" rel="stylesheet" />
 
 <!-- Custom styles for this template -->
-    <link href="/css/signin.css" rel="stylesheet" />
+<link href="/css/signin.css" rel="stylesheet" />
 
 <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
 <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="js/ie-emulation-modes-warning.js"></script>
+<script src="js/ie-emulation-modes-warning.js"></script>
 
 </head>
 
 
 <body>
 
-<h1> Bonjour Jeune Padawan!!</h1>
-		
+	<h1>Etudiant: Mes Sujets</h1>
+
+	<table>
+		<tr>
+			<th>Sujet</th>
+			<th>Date de création</th>
+			<th>Date Limite de Depot</th>
+			<th>Etat</th>
+			<th>Action</th>
+		</tr>
+
+		<tr>
+			<td><a href="subject_consult.html">Java</a></td>
+			<td>14/12/2016</td>
+			<td>28/12/2016</td>
+			<td id="Etat1">En Attente</td>
+			<td><a href="/students/uploadfile">
+					<button id="button1" class="btn btn-default btn-primary btn-block"
+						type="submit">
+						<span class="glyphicon glyphicon-triangle-right"
+							aria-hidden="false"></span> Déposer
+					</button>
+			</a></td>
+
+		</tr>
+
+		<tr>
+
+			<td><a href="subjectModify">Devoir2</a></td>
+			<td>10/12/2016</td>
+			<td>10/01/2017</td>
+			<td id="Etat1">En Attente</td> 
+			<td><a href="/students/uploadfile">
+                    <button id="button1" class="btn btn-default btn-primary btn-block"
+                        type="submit">
+                        <span class="glyphicon glyphicon-triangle-right"
+                            aria-hidden="false"></span> Déposer
+                    </button>
+            </a></td>
+
+		</tr>
+
+		<tr>
+
+			<td><a href="subject_view.html">Devoir3</a></td>
+			<td>05/12/2016</td>
+			<td>05/01/2017</td>
+			<td id="Etat2">Déposé</td>
+			<td id="modifier"><a href="homework_deposit.html">Modifier</a></td>
+
+		</tr>
+
+
+	</table>
+	<form method="Get" action="home.html">
+		<input id="button4" type="submit" name="Se Deconnecter"
+			value="Se Deconnecter" />
+	</form>
+
 
 
 	<!-- Bootstrap core JavaScript
@@ -43,4 +100,4 @@
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="js/ie10-viewport-bug-workaround.js"></script>
 </body>
-</html>	
+</html>

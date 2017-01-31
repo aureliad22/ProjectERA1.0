@@ -1,43 +1,94 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Etudiant: mes devoirs</title>
-    <link href="../static/css/subject_consult.css" rel="stylesheet" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-       
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link rel="icon" href="../../favicon.ico" />
+
+<title>Etudiant: mes devoirs</title>
+
+<!-- Bootstrap core CSS -->
+<link href="/css/bootstrap.min.css" rel="stylesheet" />
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<link href="/css/ie10-viewport-bug-workaround.css" rel="stylesheet" />
+
+<!-- Custom styles for this template -->
+<link href="/css/signin.css" rel="stylesheet" />
+
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<script src="js/ie-emulation-modes-warning.js"></script>
 </head>
 <body>
-<h1>Deposer un devoir</h1>
-<label>  Titre</label>
-<input type="text" name="titre"  placeholder="Java"/> </br>
-<label>  Date de creation</label>
-<input type="text" name=" Date de creation" placeholder="05/12/2016"/> </br>
-<label>  Date limite</label>
-<input type="text" name="Date limite" placeholder="25/12/2016"/></br>
-<label> Fichier</label>
-<input type="text" name=" fichier"/>
+	<h1>Deposer un devoir</h1>
+	<label> Titre</label>
+	<input type="text" name="titre" placeholder="Java" />
+	<br />
+	<label> Date de création</label>
+	<input type="text" name=" Date de creation" placeholder="05/12/2016" />
+	<br />
+	<label> Date limite</label>
+	<input type="text" name="Date limite" placeholder="25/12/2016" />
+	<br />
+	<label> Fichier</label>
+	<!-- <a href="students/uploadfile">
+                    <button id="button1" class="btn btn-default btn-primary btn-block"
+                        type="submit">
+                        <span class="glyphicon glyphicon-triangle-right"
+                            aria-hidden="false"></span> Telecharger
+                    </button>
+            </a> -->
+	<div class="container">
+		<div class="page-header" th:if="${message}">
+			<h2 th:text="${message}"></h2>
+		</div>
+		<div class="page-header">
+			<form method="POST" enctype="multipart/form-data" action="/">
+				<table>
+					<tr>
+						<td>Devoir à télécharger:</td>
+						<td><input type="file" name="Mon fichier" /></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type="submit" value="Télécharger" /></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
 
-<input type="file" style="width:200px; font-size:10px; color:red;" />  </br>
-
-<label> URL</label>
-<input type="url"></br>
-<label>Groupe</label>
-<input></br>
-<input></br>
-<input></br>
-<form method="Get" action="subject_view.html">
-<input id="button1" type="submit" name="Valider" value="Valider"/>
-</form>
-<form method="Get" action="subject_view.html">
-<input id="button3" type="submit" name="Annuler" value="Annuler"/>
-</form>
-<form method="Get" action="home.html">
-<input id="button2" type="submit" name="Se Deconnecter" value="Se Deconnecter" />
-</form>
-
-
-
-
-
+	<div>
+		<ul>
+			<li th:each="file : ${files}"><a th:href="${file}"
+				th:text="${file}"></a></li>
+		</ul>
+	</div>
+	<br />
+	<label> URL</label>
+	<input type="url" />
+	<br />
+	<label>Groupe</label>
+	<input />
+	<br />
+	<input />
+	<br />
+	<input />
+	<br />
+	<form method="Get" action="subject_view.html">
+		<input id="button1" type="submit" name="Valider" value="Valider" />
+	</form>
+	<form method="Get" action="subject_view.html">
+		<input id="button3" type="submit" name="Annuler" value="Annuler" />
+	</form>
+	<form method="Get" action="home.html">
+		<input id="button2" type="submit" name="Se Deconnecter"
+			value="Se Deconnecter" />
+	</form>
 </body>
 </html>
