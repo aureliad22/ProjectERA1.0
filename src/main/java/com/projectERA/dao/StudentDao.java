@@ -35,7 +35,7 @@ public class StudentDao extends BaseDao<Student> implements IStudentDao{
 	
 	public Student getByLogin(String login) {
 		Student s = null;
-		List<Student> result= entityManager.createQuery("SELECT S FROM  Student S where T.login = :login", Student.class)
+		List<Student> result= entityManager.createQuery("SELECT S FROM  Student S where S.login = :login", Student.class)
                 .setParameter("login", login).getResultList();
 		  if (!result.isEmpty()){
 			  s=result.get(0);
