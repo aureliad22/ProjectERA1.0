@@ -18,7 +18,7 @@ public class LoginStudentViewController {
 		this.studentDao = studentDao;
 	}
 
-	@RequestMapping(method = RequestMethod.POST, path = "/students/login")
+	@RequestMapping(method = RequestMethod.GET, path = "/students/login")
 	public String login(Model model) {
 		return "loginStudent";
 	}

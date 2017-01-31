@@ -66,6 +66,7 @@ public class TeacherAPIController {
 	/**
 	 * Update the email and names for the identified teacher.
 	 */
+	@CrossOrigin(origins="localhost:4200")
 	@RequestMapping(value = "/teachers/update")
 	@ResponseBody
 	public String updateName(Integer id, String firstname, String lastname, String email) {
