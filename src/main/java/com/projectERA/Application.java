@@ -36,9 +36,21 @@ import com.projectERA.utils.JsonManager;
 @EnableConfigurationProperties(StorageProperties.class)
 public class Application implements CommandLineRunner {
 
+<<<<<<< HEAD
 	private static List<Teacher> teachers=JsonManager.getInstance().readJsonFile("./src/main/resources/static/json/", "smallDumpTeachers.json", Teacher.class);
 	private static List<Grade> grades=JsonManager.getInstance().readJsonFile("./src/main/resources/static/json/", "dumpGrades.json", Grade.class);
 	private static List<Student> students=JsonManager.getInstance().readJsonFile("./src/main/resources/static/json/", "smallDumpStudents.json", Student.class);
+=======
+//	private static List<Teacher> teachers=JsonManager.getInstance().readJsonFile("./src/main/resources/static/json/", "dumpTeachers.json", Teacher.class);
+	private static List<Grade> grades=JsonManager.getInstance().readJsonFile("./src/main/resources/static/json/", "dumpGrades.json", Grade.class);
+//	private static List<Student> students=JsonManager.getInstance().readJsonFile("./src/main/resources/static/json/", "dumpStudents.json", Student.class);
+//
+//	@Autowired
+//	private ITeacherDao teacherDao;
+//	
+//	@Autowired
+//	private IGradeDao gradeDao;
+>>>>>>> 922e8a586ba04cd774411effa1b509846e8e482a
 
 	@Autowired
 	private ITeacherDao teacherDao;
@@ -59,6 +71,7 @@ public class Application implements CommandLineRunner {
 		user.setFirstName("Administrator");
 
 		this.repository.save(user);*/
+<<<<<<< HEAD
 		for (Teacher teacher : teachers) {
 			teacherDao.create(teacher);
 		}
@@ -70,6 +83,19 @@ public class Application implements CommandLineRunner {
 		for (Student student : students) {
 			studentDao.create(student);
 		}
+=======
+//		for (Teacher teacher : teachers) {
+//			teacherDao.create(teacher);
+//		}
+//		
+//		for (Grade grade : grades) {
+//			gradeDao.create(grade);
+//		}
+		
+//		for (Student student : students) {
+//			studentDao.create(student);
+//		}
+>>>>>>> 922e8a586ba04cd774411effa1b509846e8e482a
 	}
 	
 	@Bean
