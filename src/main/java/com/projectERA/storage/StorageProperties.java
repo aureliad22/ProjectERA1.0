@@ -8,8 +8,8 @@ public class StorageProperties {
     /**
      * Folder location for storing files
      */
-    private String location = "upload-dir";
-
+	private String location = "./src/main/resources/uploadDir/";
+	 
     public String getLocation() {
         return location;
     }

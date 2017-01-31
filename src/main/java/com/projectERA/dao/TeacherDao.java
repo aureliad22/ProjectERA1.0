@@ -37,6 +37,7 @@ public class TeacherDao extends BaseDao<Teacher> implements ITeacherDao {
 	public List getAll() {
 		return entityManager.createQuery("select T from Teacher T").getResultList();
 	}
+	
 //	/**
 //	 * Return the teacher having the passed lastname.
 //	 */

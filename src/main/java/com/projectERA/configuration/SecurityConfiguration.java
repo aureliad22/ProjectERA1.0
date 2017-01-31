@@ -1,6 +1,7 @@
 package com.projectERA.configuration;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
@@ -18,7 +19,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.anonymous().and()
 		.authorizeRequests()
 
-		.antMatchers("/", "/teachers/**", "/students/**", "/grades/**" , "/homeworks/**", "/groups/**", "/grades/**", "/administrators/**", "/subjects/**", "/home/**", "/archives/**", "/api/**" ).permitAll()
+		.antMatchers("/", "/teachers/**", "/students/**", "/homeworks/**", "/groups/**", "/grades/**", "/administrators/**", "/subjects/**", "/home/**", "/archives/**", "/api/**" ).permitAll()
 
 		.anyRequest().authenticated();
 	}
