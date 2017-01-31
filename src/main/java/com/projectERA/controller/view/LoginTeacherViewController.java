@@ -29,17 +29,17 @@ public String login(Model model) {
 
 @RequestMapping(method = RequestMethod.POST, path= "/teachers/checkLogin")
 public String checkLogin(
-		@RequestParam(value = "email", required = false)
-		String email,
+		@RequestParam(value = "login", required = false)
+		String login,
 		@RequestParam(value = "password", required = false)
 		String password,
 		Model model){
 	
-	Teacher teacher = this.teacherDao.getByEmail(email);
+	Teacher teacher = this.teacherDao.getByLogin(login);
 	
 	if (teacher != null && 
 			teacher.getPassword().equals(password)) {
-			model.addAttribute("email", email);
+			model.addAttribute("login", login);
 			return "homeTeacher";
 		}
 			model.addAttribute("fail", true);

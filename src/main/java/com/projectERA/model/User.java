@@ -13,6 +13,9 @@ public abstract class User extends EntityBase {
 
 	// The entity fields (private)
 
+	@Column(name="login")
+	private String login;
+	
 	@Column(name = "email")
 	private String email;
 
@@ -51,10 +54,11 @@ public abstract class User extends EntityBase {
 		this.lastName = lastName;
 	}
 
-	public User(String email, String firstName, String lastName, String ldapGUID) {
+	public User(String email, String firstName, String lastName, String login, String ldapGUID) {
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.login = login;
 		this.ldapGUID = ldapGUID;
 	}
 	/**
@@ -64,10 +68,11 @@ public abstract class User extends EntityBase {
 	 * @param lastName
 	 * @param password
 	 */
-	public User(String email, String firstName, String lastName, String password, int category) {
+	public User(String email, String firstName, String lastName, String login, String password, int category) {
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.login = login;
 		this.password = password;
 		this.category = category;
 	}
@@ -79,7 +84,11 @@ public abstract class User extends EntityBase {
 	 */
 	@Override
 	public String toString() {
-		return "User [" + super.toString() + "email=" + email + ", firstName=" + firstName + ", lastName=" + lastName
+		return "User [" + super.toString() 
+				+ "email=" + email 
+				+ ", firstName=" + firstName 
+				+ ", lastName=" + lastName
+				+ ", login=" + login
 				+ ", password=" + password 
 				+ ", ldapGUID=" + ldapGUID 
 				+ "]";
@@ -173,6 +182,20 @@ public abstract class User extends EntityBase {
 	 */
 	public void setLdapGUID(String ldapGUID) {
 		this.ldapGUID = ldapGUID;
+	}
+
+	/**
+	 * @return the login
+	 */
+	public String getLogin() {
+		return login;
+	}
+
+	/**
+	 * @param login the login to set
+	 */
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
 }

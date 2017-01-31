@@ -27,9 +27,9 @@ public class TeacherAPIController {
 	 */
 	@RequestMapping(value = "/create")
 	@ResponseBody
-	public String create(String email, String firstName, String lastName, String ldapGUID) {
+	public String create(String email, String firstName, String lastName, String login, String ldapGUID) {
 		try {
-			Teacher teacher = new Teacher(email, firstName, lastName, ldapGUID);
+			Teacher teacher = new Teacher(email, firstName, lastName, login, ldapGUID);
 			teacherDao.create(teacher);
 		} catch (Exception ex) {
 			return "Error creating the teacher: " + ex.toString();
@@ -65,13 +65,24 @@ public class TeacherAPIController {
 	}
 	
 	/**
-	* List All Teachers.
+	* List the id-identified teacher.
 	*/
 //	@CrossOrigin(origins="localhost:4200")
 	@RequestMapping(value = "/getById")
 	@ResponseBody
 	public Teacher getById(Integer id) {
 		Teacher teacher = teacherDao.getById(id);
+		return teacher;
+	}
+	
+	/**
+	* List the login-identified Teacher.
+	*/
+//	@CrossOrigin(origins="localhost:4200")
+	@RequestMapping(value = "/getByLogin")
+	@ResponseBody
+	public Teacher getByLogin(String login) {
+		Teacher teacher = teacherDao.getByLogin(login);
 		return teacher;
 	}
 	

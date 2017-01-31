@@ -27,9 +27,9 @@ public class StudentAPIController {
 	 */
 	@RequestMapping(value = "/create")
 	@ResponseBody
-	public String create(String email, String firstName, String lastName, String ldapGUID) {
+	public String create(String email, String firstName, String lastName, String login, String ldapGUID) {
 		try {
-			Student student = new Student(email, firstName, lastName, ldapGUID);
+			Student student = new Student(email, firstName, lastName, login, ldapGUID);
 			studentDao.create(student);
 		} catch (Exception ex) {
 			return "Error creating the student: " + ex.toString();

@@ -63,42 +63,45 @@ public class Teacher extends User {
 	 * @param lastName
 	 * @param subjects
 	 */
-	public Teacher(String email, String firstName, String lastName, String ldapGUID) {
-		super(email, firstName, lastName, ldapGUID);
+	public Teacher(String email, String firstName, String lastName, String login, String ldapGUID) {
+		super(email, firstName, lastName, login, ldapGUID);
 		this.setPassword("t34ch3r");
 		this.setCategory(1);
 		this.subjects = new ArrayList<Subject>();;
 	}
 
-//	/**
-//	 * @param email
-//	 * @param login
-//	 * @param firstName
-//	 * @param lastName
-//	 * @param subjects
-//	 */
-//	public Teacher(
-//			@JsonProperty("email") 
-//			String email, 
-//			@JsonProperty("firstName") 
-//			String firstName, 
-//			@JsonProperty("lastName") 
-//			String lastName, 
-//			@JsonProperty("password") 
-//			String password, 
-//			@JsonProperty("category") 
-//			int category,
-//			@JsonProperty("ldapGUID") 
-//			String ldapGUID
-//			) {
-//		this.setEmail(email);
-//		this.setFirstName(firstName);
-//		this.setLastName(lastName);		
-//		this.setPassword(password);
-//		this.setCategory(category);
-//		this.setLdapGUID(ldapGUID);
-//		this.subjects= new ArrayList<Subject>();
-//	}
+	/**
+	 * @param email
+	 * @param login
+	 * @param firstName
+	 * @param lastName
+	 * @param subjects
+	 */
+	public Teacher(
+			@JsonProperty("email") 
+			String email, 
+			@JsonProperty("firstName") 
+			String firstName, 
+			@JsonProperty("lastName") 
+			String lastName, 
+			@JsonProperty("login")
+			String login,
+			@JsonProperty("password") 
+			String password, 
+			@JsonProperty("category") 
+			int category,
+			@JsonProperty("ldapGUID") 
+			String ldapGUID
+			) {
+		this.setEmail(email);
+		this.setFirstName(firstName);
+		this.setLastName(lastName);	
+		this.setLogin(login);
+		this.setPassword(password);
+		this.setCategory(category);
+		this.setLdapGUID(ldapGUID);
+		this.subjects= new ArrayList<Subject>();
+	}
 	
 	/**
 	 * @return the subjects

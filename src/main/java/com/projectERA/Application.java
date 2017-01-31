@@ -36,18 +36,18 @@ import com.projectERA.utils.JsonManager;
 @EnableConfigurationProperties(StorageProperties.class)
 public class Application implements CommandLineRunner {
 
-//	private static List<Teacher> teachers=JsonManager.getInstance().readJsonFile("./src/main/resources/static/json/", "dumpTeachers.json", Teacher.class);
-//	private static List<Grade> grades=JsonManager.getInstance().readJsonFile("./src/main/resources/static/json/", "dumpGrades.json", Grade.class);
-//	private static List<Student> students=JsonManager.getInstance().readJsonFile("./src/main/resources/static/json/", "dumpStudents.json", Student.class);
-//
-//	@Autowired
-//	private ITeacherDao teacherDao;
-//	
-//	@Autowired
-//	private IGradeDao gradeDao;
+	private static List<Teacher> teachers=JsonManager.getInstance().readJsonFile("./src/main/resources/static/json/", "smallDumpTeachers.json", Teacher.class);
+	private static List<Grade> grades=JsonManager.getInstance().readJsonFile("./src/main/resources/static/json/", "dumpGrades.json", Grade.class);
+	private static List<Student> students=JsonManager.getInstance().readJsonFile("./src/main/resources/static/json/", "smallDumpStudents.json", Student.class);
 
-//	@Autowired
-//	private IStudentDao studentDao;
+	@Autowired
+	private ITeacherDao teacherDao;
+	
+	@Autowired
+	private IGradeDao gradeDao;
+
+	@Autowired
+	private IStudentDao studentDao;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
@@ -59,17 +59,17 @@ public class Application implements CommandLineRunner {
 		user.setFirstName("Administrator");
 
 		this.repository.save(user);*/
-//		for (Teacher teacher : teachers) {
-//			teacherDao.create(teacher);
-//		}
-//		
-//		for (Grade grade : grades) {
-//			gradeDao.create(grade);
-//		}
+		for (Teacher teacher : teachers) {
+			teacherDao.create(teacher);
+		}
+		
+		for (Grade grade : grades) {
+			gradeDao.create(grade);
+		}
 
-//		for (Student student : students) {
-//			studentDao.create(student);
-//		}
+		for (Student student : students) {
+			studentDao.create(student);
+		}
 	}
 	
 	@Bean
