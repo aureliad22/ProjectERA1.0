@@ -46,7 +46,7 @@ public class FileUploadController {
         return "homework_deposit";
     }
 
-    @GetMapping("/files/{filename:.+}")
+    @GetMapping("/students/files/{filename:.+}")
     @ResponseBody
     public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
 
@@ -57,13 +57,13 @@ public class FileUploadController {
                 .body(file);
     }
 
-    @PostMapping("/upload")
+    @PostMapping("/students/upload")
     public String handleFileUpload(@RequestParam("file") MultipartFile file,
                                    RedirectAttributes redirectAttributes) {
 
         storageService.store(file);
         redirectAttributes.addFlashAttribute("message",
-                "You successfully uploaded " + file.getOriginalFilename() + "!");
+                "Téléchargement réussi " + file.getOriginalFilename() + "!");
 
         return "redirect:/";
     }
